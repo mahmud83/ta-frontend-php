@@ -1,6 +1,6 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="{{ url('/admin') }}">Start Bootstrap</a>
+    <a class="navbar-brand" href="{{ url('/admin') }}">Dinas Pendidikan Prov. Jawa Timur</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,87 +12,85 @@
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ url('/admin/charts') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Charts</span>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#dak" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-sitemap"></i>
+                    <span class="nav-link-text">DAK</span>
                 </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="{{ url('/admin/tables') }}">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-wrench"></i>
-                    <span class="nav-link-text">Components</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                <ul class="sidenav-second-level collapse" id="dak">
                     <li>
-                        <a href="{{ url('/admin/navbar') }}">Navbar</a>
+                        <a href="{{ action("DakController@sma") }}">SMA</a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/cards') }}">Cards</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-file"></i>
-                    <span class="nav-link-text">Example Pages</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-                    <li>
-                        <a href="{{ url('/admin/login') }}">Login Page</a>
+                        <a href="{{ action("DakController@smk") }}">SMK</a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/register') }}">Registration Page</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/admin/forgot-password') }}">Forgot Password Page</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/admin/blank') }}">Blank Page</a>
+                        <a href="{{ action("DakController@pkplk") }}">PK-PLK</a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#bos" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-sitemap"></i>
-                    <span class="nav-link-text">Menu Levels</span>
+                    <span class="nav-link-text">BOS</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseMulti">
+                <ul class="sidenav-second-level collapse" id="bos">
                     <li>
-                        <a href="#">Second Level Item</a>
+                        <a href="{{ action("BosController@bl") }}">Bantuan Langsung</a>
                     </li>
                     <li>
-                        <a href="#">Second Level Item</a>
+                        <a href="{{ action("BosController@btl") }}">Bantuan Tidak Langsung</a>
                     </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#apbd" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-sitemap"></i>
+                    <span class="nav-link-text">APBD</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="apbd">
                     <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-                        <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-bl">Bantuan Langsung</a>
+                        <ul class="sidenav-third-level collapse" id="apbd-bl">
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="{{ action("ApbdBlController@sma") }}">SMA</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="{{ action("ApbdBlController@smk") }}">SMK</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="{{ action("ApbdBlController@pkplk") }}">PK-PLK</a>
+                            </li>
+                            <li>
+                                <a href="{{ action("ApbdBlController@gtk") }}">GTK</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="sidenav-second-level collapse" id="apbd">
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-btl">Bantuan Tidak Langsung</a>
+                        <ul class="sidenav-third-level collapse" id="apbd-btl">
+                            <li>
+                                <a href="{{ action("ApbdBtlController@hibah") }}">Hibah</a>
+                            </li>
+                            <li>
+                                <a href="{{ action("ApbdBtlController@bkk") }}">BKK</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ action("PrioritasController@index") }}">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Link</span>
+                    <span class="nav-link-text">Prioritas</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="{{ action("FilterController@index") }}">
+                    <i class="fa fa-fw fa-link"></i>
+                    <span class="nav-link-text">Filter</span>
                 </a>
             </li>
         </ul>
