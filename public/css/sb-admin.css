@@ -3,8 +3,13 @@ html {
   min-height: 100%;
 }
 
+.bg-dark{
+  background : #117864 !important;
+}
+
 body {
   overflow-x: hidden;
+  background-color : #eaeaea !important;
 }
 
 body.sticky-footer {
@@ -17,6 +22,10 @@ body.sticky-footer .content-wrapper {
 
 body.fixed-nav {
   padding-top: 56px;
+}
+
+.bg-login{
+  background-color : #eaeaea !important;
 }
 
 .content-wrapper {
@@ -226,7 +235,8 @@ body.fixed-nav {
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-  background-color: #212529;
+  /* background-color: #212529; */
+  background-color: #117864;
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler a i {
@@ -330,12 +340,19 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   display: flex;
 }
 
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
+  background : #148f77 !important;
+  overflow-y: scroll;
+}
+
+
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
-  color: #868e96;
+  color: #e1e1e1 !important;
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
-  color: #868e96;
+  /* color: #868e96; */
+  color : #fff;
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link:hover {
@@ -344,7 +361,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a,
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level > li > a {
-  color: #868e96;
+  color: #e1e1e1 !important;
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a:focus, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a:hover,
@@ -370,7 +387,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
-    background: #343a40;
+    background: #17a589;
   }
 }
 
@@ -449,6 +466,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 .card-login {
   max-width: 25rem;
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.02), 0 4px 8px 5px rgba(0, 0, 0, 0.05);
 }
 
 .card-register {

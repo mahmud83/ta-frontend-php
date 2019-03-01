@@ -7,14 +7,14 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="{{ url('/admin') }}">
+                <a class="nav-link" href="{{ url('/home') }}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dana Alokasi Kegiatan">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#dak" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-sitemap"></i>
+                    <i class="fa fa-fw fa-book"></i>
                     <span class="nav-link-text">DAK</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="dak">
@@ -29,9 +29,9 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bantan Operasional Sekolah">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#bos" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-sitemap"></i>
+                    <i class="fa fa-fw fa-institution"></i>
                     <span class="nav-link-text">BOS</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="bos">
@@ -43,9 +43,9 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ang. Penggunaan Belanja Daerah">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#apbd" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-sitemap"></i>
+                    <i class="fa fa-fw fa-briefcase"></i>
                     <span class="nav-link-text">APBD</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="apbd">
@@ -66,8 +66,6 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
-                <ul class="sidenav-second-level collapse" id="apbd">
                     <li>
                         <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-btl">Bantuan Tidak Langsung</a>
                         <ul class="sidenav-third-level collapse" id="apbd-btl">
@@ -81,18 +79,18 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Prioritas">
                 <a class="nav-link" href="{{ action("PrioritasController@index") }}">
-                    <i class="fa fa-fw fa-link"></i>
+                    <i class="fa fa-fw fa-sort"></i>
                     <span class="nav-link-text">Prioritas</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fitur">
                 <a class="nav-link" href="{{ action("FilterController@index") }}">
-                    <i class="fa fa-fw fa-link"></i>
+                    <i class="fa fa-fw fa-filter"></i>
                     <span class="nav-link-text">Filter</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -192,7 +190,7 @@
                 </form>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="{{ url('/login') }}">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
         </ul>

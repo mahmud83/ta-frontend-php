@@ -7,25 +7,20 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
+          <a href="#">BOS</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item active">Bantuan Langsung</li>
       </ol>
-      <div class="row">
-        <div class="col-12">
-          <iframe width="98%" height="400px" style="position:absolute;" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?cid=AD5A46866F5DBEEB&resid=AD5A46866F5DBEEB%21810&authkey=ADycvzcXH0wEdVY&em=2" ></iframe>                  
+      <div class="container-fluid h-100">
+        <div class="row">
+          <div class="col-12">
+            <iframe width="98%" height="470px" style="position:absolute;" frameborder="0" scrolling="no"  src="https://onedrive.live.com/embed?cid=AD5A46866F5DBEEB&resid=AD5A46866F5DBEEB%21809&authkey=AEb-MUMdX9iV3-4&em=2"></iframe>
+          </div>
         </div>
       </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>

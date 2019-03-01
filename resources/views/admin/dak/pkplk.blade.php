@@ -1,4 +1,4 @@
-@extends('../layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -7,25 +7,20 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
+          <a href="#">DAK</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item active">PK-PLK</li>
       </ol>
-      <div class="row">
-        <div class="col-12">
-            <iframe width="98%" height="400px" style="position:absolute;" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?cid=AD5A46866F5DBEEB&resid=AD5A46866F5DBEEB%21846&authkey=ADIVN8blYJDsVek&em=2"></iframe>
+      <div class="container-fluid h-100">
+        <div class="row">
+          <div class="col-12">
+            <iframe width="98%" height="470px" src="https://onedrive.live.com/embed?cid=AD5A46866F5DBEEB&resid=AD5A46866F5DBEEB%21846&authkey=ADIVN8blYJDsVek&em=2" frameborder="0" scrolling="no"></iframe>
+          </div>
         </div>
       </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>

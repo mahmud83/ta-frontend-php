@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin - Start Bootstrap Template</title>
+    <title>Laporan Anggaran Dinas Pendidikan Provinsi Jawa Timur</title>
+    <!-- Favicon -->
+    <link rel="icon" href="{{ URL::to('/') }}/images/jatim_icon.png">
     <!-- Bootstrap core CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <!-- Custom fonts for this template-->
@@ -20,7 +22,8 @@
     <body class="{{$bodyclass}}/" id="page-top">
 @endisset
 @empty($bodyclass)
-    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <!-- <body class="fixed-nav sticky-footer bg-dark" id="page-top"> -->
+    <body class="fixed-nav bg-dark" id="page-top">
 @endempty
 
 
