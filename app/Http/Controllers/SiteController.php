@@ -19,6 +19,15 @@ class SiteController extends Controller
      {
        return view('admin.login');
      }
+    public function register()
+     {
+       return view('admin.register');
+     }
+     public function forgotPassword()
+     {
+       return view('admin.forgot-password');
+     }
+
 
 
     /**

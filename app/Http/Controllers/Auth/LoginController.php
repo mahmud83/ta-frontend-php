@@ -27,6 +27,35 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected function credentials(Request $request)
+    {
+        $field = $this->field($request);
+
+        return [
+            $field => $request->get($this->email()),
+            'password' => $request->get('password'),
+        ];
+    }
+    public function field(Request $request)
+    {
+        $email = $this->email();
+
+        return filter_var($request->get($email), FILTER_VALIDATE_EMAIL) ? $email : 'email';
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $field = $this->field($request);
+
+        $messages = ["{$this->email()}.exists" => 'The account you are trying to login is not activated or it has been disabled.'];
+
+        $this->validate($request, [
+            $this->email() => "required|exists:users,{$field},active,",
+            'password' => 'required',
+        ], $messages);
+    }
+
+
     /**
      * Create a new controller instance.
      *

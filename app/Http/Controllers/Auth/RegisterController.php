@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -49,7 +49,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -63,10 +64,40 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = User::create([
+            'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->notify(new UserActivate($user));
+        return $user;
     }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect()->route('login')
+            ->with(['success' => 'Congratulations! your account is registered, you will shortly receive an email to activate your account.']);
+    }
+
+    public function activate($token = null)
+    {
+        $user = User::where('token', $token)->first();
+
+        if (empty($user)) {
+            return redirect()->to('/')
+                ->with(['error' => 'Your activation code is either expired or invalid.']);
+        }
+
+        $user->update(['token' => null, 'active' => User::ACTIVE]);
+
+        return redirect()->route('login')
+            ->with(['success' => 'Congratulations! your account is now activated.']);
+    }
+
 }

@@ -11,6 +11,11 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            @if ($errors->has('email'))
+              <span class="invalid-feedback">
+                  <strong>{{ $errors->first('email') }}</strong>
+              </span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
@@ -25,8 +30,8 @@
           <a class="btn btn-primary btn-block" href="{{ url('/home') }}" style="background:#17a589 !important">Login</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="{{ url('/admin/register') }}" style="color:#117864 !important">Register an Account</a>
-          <a class="d-block small" href="{{ url('/admin/forgot-password') }}"  style="color:#117864 !important">Forgot Password?</a>
+          <a class="d-block small mt-3" href="{{ url('/register') }}" style="color:#117864 !important">Register an Account</a>
+          <a class="d-block small" href="{{ url('/forgot-password') }}"  style="color:#117864 !important">Forgot Password?</a>
         </div>
       </div>
     </div>

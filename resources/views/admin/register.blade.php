@@ -22,6 +22,11 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            @if ($errors->has('email'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('email') }}</strong>
+            </span>            
+            @endif
           </div>
           <div class="form-group">
             <div class="form-row">
@@ -35,11 +40,11 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="{{ url('/admin/register') }}">Register</a>
+          <a class="btn btn-primary btn-block" href="{{ url('/register') }}">Register</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="{{ url('/admin/login') }}">Login Page</a>
-          <a class="d-block small" href="{{ url('/admin/forgot-password') }}">Forgot Password?</a>
+          <a class="d-block small mt-3" href="{{ url('/login') }}">Login Page</a>
+          <a class="d-block small" href="{{ url('/forgot-password') }}">Forgot Password?</a>
         </div>
       </div>
     </div>

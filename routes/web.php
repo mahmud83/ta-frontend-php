@@ -1,11 +1,17 @@
 <?php
+Auth::routes();
 
+Route::get('activate/{token}', 'Auth\RegisterController@activate')
+    ->name('activate');
+    
 Route::get('/', function () {
     return redirect('/login');
 });
 
 Route::get('/admin/{demopage?}', 'DemoController@demo')->name('demo');
 Route::get('/login','SiteController@login');
+Route::get('/register','SiteController@register');
+Route::get('/forgot-password','SiteController@forgotPassword');
 Route::get('/home','SiteController@index');
 Route::get('/dak','DakController@index');
 Route::get('/dak/sma','DakController@sma');
