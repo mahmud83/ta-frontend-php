@@ -11,9 +11,41 @@ class PrioritasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
          return view('admin.prioritas.index');
+    }
+
+    public function spp(){
+        return view('admin.prioritas.spp');
+    }
+    public function rekapSmkPengampu(){
+        return view('admin.prioritas.rekapSmkPengampu');
+    }
+    public function rekapSeragam(){
+        return view('admin.prioritas.rekapSeragam');
+    }
+    public function rekapSarpras(){
+        return view('admin.prioritas.rekapSarpras');
+    }
+    public function kepengasuhan(){
+        return view('admin.prioritas.kepengasuhan');
+    }
+    public function honorNonPnstksdsmp(){
+        return view('admin.prioritas.honorNonPnstksdsmp');
+    }
+    public function honorKepalaGuruTkPaudNonPns(){
+        return view('admin.prioritas.honorKepalaGuruTkPaudNonPns');
+    }
+    public function honorGttPtt(){
+        return view('admin.prioritas.honorGttPtt');
+    }
+    public function bosdaMadinDanBop(){
+        return view('admin.prioritas.bosdaMadinDanBop');
     }
 
     /**

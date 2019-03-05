@@ -4,36 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ApbdBlController extends Controller
+class RekapController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function index()
     {
-        echo "hello";
-    }
-    public function sma()
-    {
-         return view('admin.apbdbl.sma');
-    }
-    public function smk()
-    {
-         return view('admin.apbdbl.smk');
-    }
-    public function pkplk()
-    {
-         return view('admin.apbdbl.pkplk');
-    }
-    public function gtk()
-    {
-         return view('admin.apbdbl.gtk');
+        return view('admin.rekap.index');
     }
 
     /**

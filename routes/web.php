@@ -1,18 +1,17 @@
 <?php
    
 Route::get('/', function () {
-    return view('admin.login');
+    return redirect('home');
 });
 
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/admin/{demopage?}', 'DemoController@demo')->name('demo');
 // Route::get('/login','SiteController@login');
-Route::get('/register','Auth\RegisterController@index')->name('register');
+// Route::get('/register','Auth\RegisterController@index')->name('register');
 // Route::get('/login','Auth\LoginController@index')->name('login');
 Route::get('/proses-register','Auth\RegisterController@create')->name('proses-register');
 Route::get('/forgot-password','SiteController@forgotPassword');
-Route::get('/home','SiteController@index')->name('home');;
 Route::get('/dak','DakController@index');
 Route::get('/dak/sma','DakController@sma');
 Route::get('/dak/smk','DakController@smk');
@@ -31,5 +30,21 @@ Route::get('/apbdbl/gtk','ApbdBlController@gtk');
 Route::get('/apbdbtl/hibah','ApbdBtlController@hibah');
 Route::get('/apbdbtl/bkk','ApbdBtlController@bkk');
 
+// prioritas
 Route::get('/prioritas','PrioritasController@index');
-Route::get('/filter','FilterController@index');
+Route::get('/prioritas/spp', 'PrioritasController@spp');
+Route::get('/prioritas/rekap-smk-pengampu', 'PrioritasController@rekapSmkPengampu');
+Route::get('/prioritas/rekap-seragam', 'PrioritasController@rekapSeragam');
+Route::get('/prioritas/rekap-sarpras', 'PrioritasController@rekapSarpras');
+Route::get('/prioritas/kepengasuhan', 'PrioritasController@kepengasuhan');
+Route::get('/prioritas/honor-non-pns', 'PrioritasController@honorNonPnstksdsmp');
+Route::get('/prioritas/honor-Kepala-guru', 'PrioritasController@honorKepalaGuruTkPaudNonPns');
+Route::get('/prioritas/honor-gtt-ptt', 'PrioritasController@honorGttPtt');
+Route::get('/prioritas/bosda-madin-dan-bop', 'PrioritasController@bosdaMadinDanBop');
+
+Route::get('/rekap','RekapController@index');
+Auth::routes();
+
+// Route::get('/home','SiteController@index')->name('home');;
+
+Route::get('/home', 'HomeController@index')->name('home');

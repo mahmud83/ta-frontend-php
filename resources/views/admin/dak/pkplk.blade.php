@@ -14,7 +14,7 @@
       <div class="container-fluid h-100">
         <div class="row">
           <div class="col-12">
-            <iframe width="98%" height="470px" src="https://onedrive.live.com/embed?cid=AD5A46866F5DBEEB&resid=AD5A46866F5DBEEB%21846&authkey=ADIVN8blYJDsVek&em=2" frameborder="0" scrolling="no"></iframe>
+            <iframe width="98%" height="470px" src="https://docs.google.com/spreadsheets/d/1JVpjtZsxLi9xUUKGtJvXF-Tu9Ge2YkM7Qm1TFxqK38s/edit?usp=sharing" frameborder="0" scrolling="no"></iframe>
           </div>
         </div>
       </div>
