@@ -6,8 +6,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form method="POST" action="{{ route('/register') }}">
-          @csrf
+        <form>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -46,7 +45,7 @@
           </button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="{{ url('/login') }}">Login Page</a>
+          <a class="d-block small mt-3" href="">Login Page</a>
           <a class="d-block small" href="{{ url('/forgot-password') }}">Forgot Password?</a>
         </div>
       </div>

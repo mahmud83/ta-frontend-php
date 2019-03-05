@@ -1,18 +1,18 @@
 <?php
-Auth::routes();
-
-Route::get('activate/{token}', 'Auth\RegisterController@activate')
-    ->name('activate');
-    
+   
 Route::get('/', function () {
-    return redirect('/login');
+    return view('admin.login');
 });
 
-Route::get('/admin/{demopage?}', 'DemoController@demo')->name('demo');
-Route::get('/login','SiteController@login');
-Route::get('/register','SiteController@register');
+Auth::routes();
+
+// Route::get('/admin/{demopage?}', 'DemoController@demo')->name('demo');
+// Route::get('/login','SiteController@login');
+Route::get('/register','Auth\RegisterController@index')->name('register');
+// Route::get('/login','Auth\LoginController@index')->name('login');
+Route::get('/proses-register','Auth\RegisterController@create')->name('proses-register');
 Route::get('/forgot-password','SiteController@forgotPassword');
-Route::get('/home','SiteController@index');
+Route::get('/home','SiteController@index')->name('home');;
 Route::get('/dak','DakController@index');
 Route::get('/dak/sma','DakController@sma');
 Route::get('/dak/smk','DakController@smk');

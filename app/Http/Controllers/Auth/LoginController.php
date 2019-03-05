@@ -27,33 +27,33 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-    protected function credentials(Request $request)
-    {
-        $field = $this->field($request);
+    // protected function credentials(Request $request)
+    // {
+    //     $field = $this->field($request);
 
-        return [
-            $field => $request->get($this->email()),
-            'password' => $request->get('password'),
-        ];
-    }
-    public function field(Request $request)
-    {
-        $email = $this->email();
+    //     return [
+    //         $field => $request->get($this->email()),
+    //         'password' => $request->get('password'),
+    //     ];
+    // }
+    // public function field(Request $request)
+    // {
+    //     $email = $this->email();
 
-        return filter_var($request->get($email), FILTER_VALIDATE_EMAIL) ? $email : 'email';
-    }
+    //     return filter_var($request->get($email), FILTER_VALIDATE_EMAIL) ? $email : 'email';
+    // }
 
-    protected function validateLogin(Request $request)
-    {
-        $field = $this->field($request);
+    // protected function validateLogin(Request $request)
+    // {
+    //     $field = $this->field($request);
 
-        $messages = ["{$this->email()}.exists" => 'The account you are trying to login is not activated or it has been disabled.'];
+    //     $messages = ["{$this->email()}.exists" => 'The account you are trying to login is not activated or it has been disabled.'];
 
-        $this->validate($request, [
-            $this->email() => "required|exists:users,{$field},active,",
-            'password' => 'required',
-        ], $messages);
-    }
+    //     $this->validate($request, [
+    //         $this->email() => "required|exists:users,{$field},active,",
+    //         'password' => 'required',
+    //     ], $messages);
+    // }
 
 
     /**
@@ -65,4 +65,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    // public function index(){
+    //     return view('auth.login');
+    // }
 }

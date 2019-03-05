@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -28,16 +29,22 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function index(){
+        return view('auth.register');
     }
 
     /**
@@ -49,10 +56,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required',
+            'password' => 'required:confirmed',
         ]);
     }
 
@@ -62,42 +69,22 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        $user = User::create([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-        $user->notify(new UserActivate($user));
-        return $user;
-    }
-
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        return redirect()->route('login')
-            ->with(['success' => 'Congratulations! your account is registered, you will shortly receive an email to activate your account.']);
-    }
-
-    public function activate($token = null)
-    {
-        $user = User::where('token', $token)->first();
-
-        if (empty($user)) {
-            return redirect()->to('/')
-                ->with(['error' => 'Your activation code is either expired or invalid.']);
+        
+        if($this->validator($request->all())->fails()){
+            // dd($request->all());
+           return redirect()->route('register');
+        }else{
+            // dd('sampai');
+            User::create([
+                'firstName' => $request['firstName'],
+                'lastName' => $request['lastName'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
+           return redirect()->route('login');
         }
-
-        $user->update(['token' => null, 'active' => User::ACTIVE]);
-
-        return redirect()->route('login')
-            ->with(['success' => 'Congratulations! your account is now activated.']);
     }
 
 }
