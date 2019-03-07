@@ -122,12 +122,15 @@
                 </ul>
             </li>
 
-            <li class="nav-link nav-link-collapse collapsed" data-toggle="tooltip" data-placement="right" title="Fitur">
-                <a class="nav-link" href="{{ action("RekapController@index") }}">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="rekap">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"  href="#rekap" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-archive"></i>
                     <span class="nav-link-text">Rekap Anggaran</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="prioritas">
+                <ul class="sidenav-second-level collapse" id="rekap">
+                    <li>
+                        <a href="{{ action("RekapController@index") }}">All</a>
+                    </li>                    
                     <li>
                         <a href="{{ action("RekapController@kabupaten") }}">Kabupaten</a>
                     </li>

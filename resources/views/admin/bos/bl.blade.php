@@ -9,7 +9,7 @@
         <li class="breadcrumb-item">
           <a href="#">BOS</a>
         </li>
-        <li class="breadcrumb-item active">Bantuan Langsung</li>
+        <li class="breadcrumb-item active">Belanja Langsung</li>
       </ol>
       <div class="container-fluid h-100">
         <div class="row">

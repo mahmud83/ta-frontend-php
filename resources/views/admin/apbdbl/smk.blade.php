@@ -10,7 +10,7 @@
           <a href="#">APBD</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="#">Bantuan Langsung</a>
+          <a href="#">Belanja Langsung</a>
         </li>
         <li class="breadcrumb-item active">SMK</li>
       </ol>

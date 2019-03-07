@@ -15,6 +15,24 @@ class RekapController extends Controller
     {
         return view('admin.rekap.index');
     }
+    public function kabupaten(){
+        return view('admin.rekap.kabupaten');
+    }
+    public function madiun(){
+        return view('admin.rekap.madiun');
+    }
+    public function bojonegoro(){
+        return view('admin.rekap.bojonegoro');
+    }
+    public function malang(){
+        return view('admin.rekap.malang');
+    }
+    public function pamekasan(){
+        return view('admin.rekap.pamekasan');
+    }
+    public function jember(){
+        return view('admin.rekap.jember');
+    }
 
     /**
      * Show the form for creating a new resource.

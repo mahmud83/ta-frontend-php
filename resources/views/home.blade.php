@@ -4,13 +4,6 @@
 
   <div class="content-wrapper">
     <div class="container">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active"></li>
-      </ol>
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <center><img src="{{ URL::to('/') }}/images/jatim.png" style="width: 200px;"></center>
@@ -24,7 +17,7 @@
 
       <!-- Icon Cards-->
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col">
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -40,7 +33,7 @@
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col">
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -56,7 +49,7 @@
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col">
           <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -72,7 +65,7 @@
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col">
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -88,10 +81,26 @@
             </a>
           </div>
         </div>
+        <div class="col">
+          <div class="card text-black bg-black o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-support"></i>
+              </div>
+              <div class="mr-5" style="font-size: 15pt;font-weight: bold;">Rekap</div>
+            </div>
+            <a class="card-footer text-black clearfix small z-1" data-toggle="collapse" href="#prioritas">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <!-- /.container-fluid-->
-    <hr>
+    </div>
     <!-- /.content-wrapper-->
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -101,7 +110,7 @@
     <div class="container-fluid h-100">
         <div class="row">
           <div class="col-12">
-            <iframe width="98%" height="470px" style="position:absolute;" frameborder="0" scrolling="no"  src="https://docs.google.com/spreadsheets/d/1SJ-9SA4nBfVl3lNhHdWd6h_gi4EHTTceliat2ZCAb7Q/edit?usp=sharing"></iframe>
+            <iframe width="98%" height="570px" style="position:absolute;" frameborder="0" scrolling="no"  src="https://docs.google.com/spreadsheets/d/1SJ-9SA4nBfVl3lNhHdWd6h_gi4EHTTceliat2ZCAb7Q/edit?usp=sharing"></iframe>
           </div>
         </div>
     </div>

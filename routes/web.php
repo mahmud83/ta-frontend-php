@@ -42,7 +42,14 @@ Route::get('/prioritas/honor-Kepala-guru', 'PrioritasController@honorKepalaGuruT
 Route::get('/prioritas/honor-gtt-ptt', 'PrioritasController@honorGttPtt');
 Route::get('/prioritas/bosda-madin-dan-bop', 'PrioritasController@bosdaMadinDanBop');
 
+// rekap
 Route::get('/rekap','RekapController@index');
+Route::get('/rekap/kabupaten','RekapController@kabupaten');
+Route::get('/rekap/madiun','RekapController@madiun');
+Route::get('/rekap/bojonegoro','RekapController@bojonegoro');
+Route::get('/rekap/malang','RekapController@malang');
+Route::get('/rekap/pamekasan','RekapController@pamekasan');
+Route::get('/rekap/jember','RekapController@jember');
 Auth::routes();
 
 // Route::get('/home','SiteController@index')->name('home');;
