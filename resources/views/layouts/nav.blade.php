@@ -39,10 +39,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="bos">
                     <li>
-                        <a href="{{ action("BosController@bl") }}">Bantuan Langsung</a>
+                        <a href="{{ action("BosController@bl") }}">BELANJA Langsung</a>
                     </li>
                     <li>
-                        <a href="{{ action("BosController@btl") }}">Bantuan Tidak Langsung</a>
+                        <a href="{{ action("BosController@btl") }}">BELANJA Tidak Langsung</a>
                     </li>
                 </ul>
             </li>
@@ -53,7 +53,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="apbd">
                     <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-bl">Bantuan Langsung</a>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-bl">BELANJA Langsung</a>
                         <ul class="sidenav-third-level collapse" id="apbd-bl">
                             <li>
                                 <a href="{{ action("ApbdBlController@sma") }}">SMA</a>
@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-btl">Bantuan Tidak Langsung</a>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-btl">BELANJA Tidak Langsung</a>
                         <ul class="sidenav-third-level collapse" id="apbd-btl">
                             <li>
                                 <a href="{{ action("ApbdBtlController@hibah") }}">Hibah</a>
@@ -96,28 +96,28 @@
                         <a href="{{ action("PrioritasController@spp") }}">SPP</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@rekapSmkPengampu") }}">REKAP SMK PENGAMPU</a>
+                        <a href="{{ action("PrioritasController@rekapSmkPengampu") }}">SMK PENGAMPU</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@rekapSeragam") }}">REKAP SERAGAM</a>
+                        <a href="{{ action("PrioritasController@rekapSeragam") }}">SERAGAM</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@rekapSarpras") }}">REKAP SARPRAS</a>
+                        <a href="{{ action("PrioritasController@rekapSarpras") }}">SARPRAS</a>
                     </li>
                     <li>
                         <a href="{{ action("PrioritasController@kepengasuhan") }}">KEPENGASUHAN</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@honorNonPnstksdsmp") }}">HONOR NON PNS TKSDSMP</a>
+                        <a href="{{ action("PrioritasController@honorNonPnstksdsmp") }}">HONORARIUM GURU NON PNS</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@honorKepalaGuruTkPaudNonPns") }}">HONOR KEPALA GURU TK PAUD  NON PNS</a>
+                        <a href="{{ action("PrioritasController@honorKepalaGuruTkPaudNonPns") }}">HONORARIUM KEPALA/GURU TK-PAUD  NON PNS</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@honorGttPtt") }}">HONOR GTT - PTT</a>
+                        <a href="{{ action("PrioritasController@honorGttPtt") }}">HONORARIUM GTT/PTT</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@bosdaMadinDanBop") }}">BOSDA MADIN DAN BOP</a>
+                        <a href="{{ action("PrioritasController@bosdaMadinDanBop") }}">BPPDGS BOP DAN MADIN</a>
                     </li>
                 </ul>
             </li>

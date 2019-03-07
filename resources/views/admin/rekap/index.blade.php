@@ -6,9 +6,6 @@
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">BOS</a>
-        </li>
         <li class="breadcrumb-item active">Rekap Anggaran</li>
       </ol>
       <div class="container-fluid h-100">

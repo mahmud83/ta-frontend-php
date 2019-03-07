@@ -4,9 +4,12 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
+<!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Prioritas</li>
+        <li class="breadcrumb-item">
+          <a href="#">Prioritas</a>
+        </li>
+        <li class="breadcrumb-item active">SPP</li>
       </ol>
       <div class="row">
         <div class="col-12">

@@ -6,7 +6,10 @@
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Prioritas</li>
+        <li class="breadcrumb-item">
+          <a href="#">Prioritas</a>
+        </li>
+        <li class="breadcrumb-item active">HONORARIUM GURU NON PNS</li>
       </ol>
       <div class="row">
         <div class="col-12">

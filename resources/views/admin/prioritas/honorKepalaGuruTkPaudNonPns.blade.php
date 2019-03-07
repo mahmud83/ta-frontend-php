@@ -6,8 +6,12 @@
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Prioritas</li>
+        <li class="breadcrumb-item">
+          <a href="#">Prioritas</a>
+        </li>
+        <li class="breadcrumb-item active">HONORARIUM KEPALA/GURU TK-PAUD  NON PNS</li>
       </ol>
+     
       <div class="row">
         <div class="col-12">
           <iframe width="98%" height="470px" style="position:absolute;" frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/11Z6yzqGWOD9NONL5-ympIGqEjvvKJx8hHlsmGl7S6cc/edit?usp=sharing" ></iframe>
