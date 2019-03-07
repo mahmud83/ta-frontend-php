@@ -12,7 +12,7 @@
         <li class="breadcrumb-item">
           <a href="#">Belanja Langsung</a>
         </li>
-        <li class="breadcrumb-item active">SMK</li>
+        <li class="breadcrumb-item active">SMA</li>
       </ol>
       <div class="row">
         <div class="col-12">

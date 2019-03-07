@@ -102,7 +102,7 @@
                         <a href="{{ action("PrioritasController@rekapSeragam") }}">Seragam</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@rekapSarpras") }}">Sarpras</a>
+                        <a href="{{ action("PrioritasController@rekapSarpras") }}">SARPRAS</a>
                     </li>
                     <li>
                         <a href="{{ action("PrioritasController@kepengasuhan") }}">Kepengasuhan</a>
@@ -111,7 +111,7 @@
                         <a href="{{ action("PrioritasController@honorNonPnstksdsmp") }}">Honorarium guru non PNS</a>
                     </li>
                     <li>
-                        <a href="{{ action("PrioritasController@honorKepalaGuruTkPaudNonPns") }}">Honorarium kepala/guru tk-paud  non pns</a>
+                        <a href="{{ action("PrioritasController@honorKepalaGuruTkPaudNonPns") }}">Honorarium kepala/guru TK-PAUD  non PNS</a>
                     </li>
                     <li>
                         <a href="{{ action("PrioritasController@honorGttPtt") }}">Honorarium GTT/PTT</a>
@@ -127,10 +127,7 @@
                     <i class="fa fa-fw fa-archive"></i>
                     <span class="nav-link-text">Rekap Anggaran</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="rekap">
-                    <li>
-                        <a href="{{ action("RekapController@index") }}">All</a>
-                    </li>                    
+                <ul class="sidenav-second-level collapse" id="rekap">                
                     <li>
                         <a href="{{ action("RekapController@kabupaten") }}">Kabupaten</a>
                     </li>
