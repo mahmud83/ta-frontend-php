@@ -132,19 +132,19 @@
                         <a href="{{ action("RekapController@kabupaten") }}">Kabupaten</a>
                     </li>
                     <li>
-                        <a href="{{ action("RekapController@madiun") }}">Madiun</a>
+                        <a href="{{ action("RekapController@madiun") }}">Bakorwil Madiun</a>
                     </li>
                     <li>
-                        <a href="{{ action("RekapController@bojonegoro") }}">Bojonegoro</a>
+                        <a href="{{ action("RekapController@bojonegoro") }}">Bakorwil Bojonegoro</a>
                     </li>
                     <li>
-                        <a href="{{ action("RekapController@malang") }}">Malang</a>
+                        <a href="{{ action("RekapController@malang") }}">Bakorwil Malang</a>
                     </li>
                     <li>
-                        <a href="{{ action("RekapController@pamekasan") }}">Pamekasan</a>
+                        <a href="{{ action("RekapController@pamekasan") }}">Bakorwil Pamekasan</a>
                     </li>
                     <li>
-                        <a href="{{ action("RekapController@jember") }}">Jember</a>
+                        <a href="{{ action("RekapController@jember") }}">Bakorwil Jember</a>
                     </li>
                 </ul>
             </li>

@@ -19,14 +19,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <style>
-        html,
-        body {
-            height: 100%;
-            /* position: absolute; */
+        html, body {
+         height: 100%;
+         width:100%;
         }
-        .container{
-            min-height: 100%;
-            overflow: hidden;
+        .container-fluid {
+            height: 90%;
+            overflow-y: hidden; /* don't show content that exceeds my height */
+            width: -webkit-fill-available;
         }
     </style>
 </head>
@@ -39,8 +39,43 @@
     <body class="fixed-nav bg-dark" id="page-top">
 @endempty
 
-
-@yield('content')
+  <div class="content-wrapper container-fluid h-100">
+    <div class="container-fluid h-100">
+      <!-- Breadcrumbs-->
+      @yield('breadcrumbs')        
+      <div class="container-fluid h-100">
+        <div class="row justify-content-center h-100">
+          <div class="col-12">
+            @yield('content')
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @empty($hidenav)
     @include('layouts.nav')
