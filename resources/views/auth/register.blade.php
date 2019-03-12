@@ -24,7 +24,7 @@
     <div class="row container-fluid h-100">
    
       <div class="container-fluid h-100">
-        <div class="card justify-content-center h-100" style="width: 100%; margin: 0 auto; float: none;  padding:20px;">
+        <div class="card justify-content-center h-100" style="width: 27em; margin: 0 auto; float: none;  padding:20px;">
           <div class="col-12">
                             <div class="card card-default">
                 <div class="card-header">Register</div>
@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-12 offset-md-12">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>

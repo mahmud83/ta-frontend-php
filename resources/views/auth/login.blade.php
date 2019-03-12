@@ -24,7 +24,7 @@
     <div class="row container-fluid h-100">
    
       <div class="container-fluid h-100">
-        <div class="card justify-content-center h-100" style="width: 100%; margin: 0 auto; float: none; padding:20px;">
+        <div class="card justify-content-center h-100" style="width: 27em; margin: 0 auto; float: none; padding:20px;">
           <div class="col-12">
                 <center><img src="{{ URL::to('/') }}/images/heading.png" class=" mt-5" style="width: 300px; margin-bottom : 20px;"></center>
                     <div class="card card-login mx-auto">
