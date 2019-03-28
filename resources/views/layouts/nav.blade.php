@@ -1,187 +1,156 @@
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    @guest
-    @else
-    <a class="navbar-brand" href="{{ url('/') }}">Dinas Pendidikan Provinsi Jawa Timur</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="{{ url('/home') }}">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Dashboard</span>
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Messages
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-message">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle">
+                    <div class="is-online"></div>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b>
+                    <p>Hello, Bro!</p>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
                 </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dana Alokasi Kegiatan">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#dak" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-book"></i>
-                    <span class="nav-link-text">DAK</span>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Dedik Sugiharto</b>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
                 </a>
-                <ul class="sidenav-second-level collapse" id="dak">
-                    <li>
-                        <a href="{{ action("DakController@sma") }}">SMA</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("DakController@smk") }}">SMK</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("DakController@pkplk") }}">PK-PLK</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bantan Operasional Sekolah">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#bos" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-institution"></i>
-                    <span class="nav-link-text">BOS</span>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../assets/img/avatar/avatar-3.png" class="rounded-circle">
+                    <div class="is-online"></div>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
                 </a>
-                <ul class="sidenav-second-level collapse" id="bos">
-                    <li>
-                        <a href="{{ action("BosController@bl") }}">Belanja Langsung</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("BosController@btl") }}">Belanja Tidak Langsung</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ang. Penggunaan Belanja Daerah">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#apbd" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-briefcase"></i>
-                    <span class="nav-link-text">APBD</span>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../assets/img/avatar/avatar-4.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
                 </a>
-                <ul class="sidenav-second-level collapse" id="apbd">
-                    <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-bl">Belanja Langsung</a>
-                        <ul class="sidenav-third-level collapse" id="apbd-bl">
-                            <li>
-                                <a href="{{ action("ApbdBlController@sma") }}">SMA</a>
-                            </li>
-                            <li>
-                                <a href="{{ action("ApbdBlController@smk") }}">SMK</a>
-                            </li>
-                            <li>
-                                <a href="{{ action("ApbdBlController@pkplk") }}">PK-PLK</a>
-                            </li>
-                            <li>
-                                <a href="{{ action("ApbdBlController@gtk") }}">GTK</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#apbd-btl">Belanja Tidak Langsung</a>
-                        <ul class="sidenav-third-level collapse" id="apbd-btl">
-                            <li>
-                                <a href="{{ action("ApbdBtlController@hibah") }}">Hibah</a>
-                            </li>
-                            <li>
-                                <a href="{{ action("ApbdBtlController@bkk") }}">BKK</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Prioritas">
-                <!-- <a class="nav-link" href="{{ action("PrioritasController@index") }}">
-                    <i class="fa fa-fw fa-sort"></i>
-                    <span class="nav-link-text">Prioritas</span>
-                </a> -->
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#prioritas" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-briefcase"></i>
-                    <span class="nav-link-text">Prioritas</span>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b>
+                    <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                    <div class="time">Yesterday</div>
+                  </div>
                 </a>
-                <ul class="sidenav-second-level collapse" id="prioritas">
-                    <li>
-                        <a href="{{ action("PrioritasController@spp") }}">SPP</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@rekapSmkPengampu") }}">SMK Pengampu</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@rekapSeragam") }}">Seragam</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@rekapSarpras") }}">SARPRAS</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@kepengasuhan") }}">Kepengasuhan</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@honorNonPnstksdsmp") }}">Honorarium guru non PNS</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@honorKepalaGuruTkPaudNonPns") }}">Honorarium kepala/guru TK-PAUD  non PNS</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@honorGttPtt") }}">Honorarium GTT/PTT</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("PrioritasController@bosdaMadinDanBop") }}">BPPDGS BOP dan MADIN</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="rekap">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"  href="#rekap" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-archive"></i>
-                    <span class="nav-link-text">Rekap Anggaran</span>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-icon bg-primary text-white">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Template update is available now!
+                    <div class="time text-primary">2 Min Ago</div>
+                  </div>
                 </a>
-                <ul class="sidenav-second-level collapse" id="rekap">                
-                    <li>
-                        <a href="{{ action("RekapController@kabupaten") }}">Kabupaten</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("RekapController@madiun") }}">Bakorwil Madiun</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("RekapController@bojonegoro") }}">Bakorwil Bojonegoro</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("RekapController@malang") }}">Bakorwil Malang</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("RekapController@pamekasan") }}">Bakorwil Pamekasan</a>
-                    </li>
-                    <li>
-                        <a href="{{ action("RekapController@jember") }}">Bakorwil Jember</a>
-                    </li>
-                </ul>
-            </li>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white">
+                    <i class="far fa-user"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-success text-white">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-danger text-white">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Low disk space. Let's clean it!
+                    <div class="time">17 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white">
+                    <i class="fas fa-bell"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Welcome to Stisla template!
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-title">Logged in 5 min ago</div>
+              <a href="features-profile.html" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="features-activities.html" class="dropdown-item has-icon">
+                <i class="fas fa-bolt"></i> Activities
+              </a>
+              <a href="features-settings.html" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </div>
+          </li>
         </ul>
-        <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-                <a class="nav-link text-center" id="sidenavToggler">
-                    <i class="fa fa-fw fa-angle-left"></i>
-                </a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto">           
-            <!-- Authentication Links -->
-            @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-            @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">                    
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            <i class="fa fa-fw fa-sign-out"></i>{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            @endguest
-        </ul>
-    </div>
-    @endguest
-</nav>
+      </nav>

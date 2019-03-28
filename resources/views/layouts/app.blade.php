@@ -1,121 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Laporan Anggaran Dinas Pendidikan Provinsi Jawa Timur</title>
-    <!-- Favicon -->
-    <link rel="icon" href="{{ URL::to('/') }}/images/jatim_icon.png">
-    <!-- Bootstrap core CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('/vendor/') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> <!-- latest 5.0.13 june 2018, needs update -->
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('/css/') }}/sb-admin.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>DNS Analyzer</title>
 
-    <style>
-        html, body {
-         height: 100%;
-         width:100%;
-        }
-        .container-fluid {
-            height: 90%;
-            overflow-y: hidden; /* don't show content that exceeds my height */
-            width: -webkit-fill-available;
-        }
-    </style>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../node_modules/jqvmap/dist/jqvmap.min.css">
+  <link rel="stylesheet" href="../node_modules/summernote/dist/summernote-bs4.css">
+  <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+
+  <!-- library for realtime data -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  @yield('head-script')
+
+  <!-- Template CSS -->
+  <link href="{{ asset('/css/') }}/style.css" rel="stylesheet">
+  <link href="{{ asset('/css/') }}/components.css" rel="stylesheet">
+
 </head>
 
-@isset($bodyclass)
-    <body class="{{$bodyclass}}/" id="page-top">
-@endisset
-@empty($bodyclass)
-    <!-- <body class="fixed-nav sticky-footer bg-dark" id="page-top"> -->
-    <body class="fixed-nav bg-dark" id="page-top">
-@endempty
+<body>
 
-  <div class="content-wrapper container-fluid h-100">
-    <div class="container-fluid h-100">
-      <!-- Breadcrumbs-->
-      @yield('breadcrumbs')        
-      <div class="container-fluid h-100">
-        <div class="row justify-content-center h-100">
-          <div class="col-12">
-            @yield('content')
-        </div>
-        </div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <!-- navigation $on -->
+      @empty($hidenav)
+        @include('layouts.nav')
+      @endempty
+      <!-- navigation $off -->
+      <!-- stisla sidebar $on-->
+      @empty($hidesidebar)
+          @include('layouts.sidebar')
+      @endempty
+      <!-- stisla sidebar $off-->
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          @yield('content')
+        </section>
       </div>
-    </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
         </div>
-      </div>
+        <div class="footer-right">
+          2.3.0
+        </div>
+      </footer>
     </div>
   </div>
 
-@empty($hidenav)
-    @include('layouts.nav')
-@endempty
+  <!-- General JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="{{ asset('/js/') }}/stisla.js"></script>
 
-<!-- Bootstrap core JavaScript-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <!-- Page Specific JS File -->
+  <script src="{{ asset('/js/') }}/page/index.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.js" integrity="sha256-MWsk0Zyox/iszpRSQk5a2iPLeWw0McNkGUAsHOyc/gE=" crossorigin="anonymous"></script>
+  <!-- Template JS File -->
+  <script src="{{ asset('/js/') }}/scripts.js"></script>
+  <script src="{{ asset('/js/') }}/custom.js"></script>
 
-<!-- Page level plugin JavaScript-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js" integrity="sha256-JG6hsuMjFnQ2spWq0UiaDRJBaarzhFbUxiUTxQDA9Lk=" crossorigin="anonymous"></script>
-
-<script src="{{ asset('/vendor/') }}/datatables/jquery.dataTables.js"></script>
-<script src="{{ asset('/vendor/') }}/datatables/dataTables.bootstrap4.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('/js/') }}/sb-admin.js"></script>
-
-<!-- Custom scripts for this page-->
-<script src="{{ asset('/js/') }}/sb-admin-datatables.js"></script>
-<script src="{{ asset('/js/') }}/sb-admin-charts.js"></script>
-
-<script>
-   
-    
-    $('#toggleNavPosition').click(function() {
-        $('body').toggleClass('fixed-nav');
-        $('nav').toggleClass('fixed-top static-top');
-    });
-
-    $('#toggleNavColor').click(function() {
-        $('nav').toggleClass('navbar-dark navbar-light');
-        $('nav').toggleClass('bg-dark bg-light');
-        $('body').toggleClass('bg-dark bg-light');
-    });
-    
-</script>
+  @yield('foot-script')
 
 </body>
 </html>
