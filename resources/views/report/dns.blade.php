@@ -11,8 +11,8 @@
     </div>
   </div>
   <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
-              <div class="card card-statistic-2">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="card card-statistic-2">
                 <div class="card-stats">
                   <div class="card-stats-title">Traffic Statistics</div>
                   <div class="card-stats-items">
@@ -41,60 +41,46 @@
                     59
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-            <!-- start date  -->
-          <div class="card card-statistic-2">
-                <div class="card-stats">
-                  <div class="card-stats-title">Start Date
-                  </div>
-                  <div class="card-stats-items">
-                    <div class="card-stats-item">
-                      <div class="dropdown d-inline">
-                      <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">August</a>
-                      <ul class="dropdown-menu dropdown-menu-sm">
-                        <li class="dropdown-title">Select day</li>
-                        <li><a href="#" class="dropdown-item">January</a></li>
-                        <li><a href="#" class="dropdown-item">February</a></li>
-                        <li><a href="#" class="dropdown-item">March</a></li>
-                        <li><a href="#" class="dropdown-item">April</a></li>
-                        <li><a href="#" class="dropdown-item">May</a></li>
-                        <li><a href="#" class="dropdown-item">June</a></li>
-                        <li><a href="#" class="dropdown-item">July</a></li>
-                        <li><a href="#" class="dropdown-item active">August</a></li>
-                        <li><a href="#" class="dropdown-item">September</a></li>
-                        <li><a href="#" class="dropdown-item">October</a></li>
-                        <li><a href="#" class="dropdown-item">November</a></li>
-                        <li><a href="#" class="dropdown-item">December</a></li>
-                      </ul>
-                    </div>
-                    </div>
-                    <div class="card-stats-item">
-                    
-                    </div>
-                    <div class="card-stats-item">
-                      <div class="card-stats-item-count">23</div>
-                      <div class="card-stats-item-label">Normal</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-icon shadow-primary bg-primary">
-                  <i class="fas fa-archive"></i>
-                </div>
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <h4>Total Connections</h4>
-                  </div>
-                  <div class="card-body">
-                    59
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12">
-            <!-- end date -->
-            </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+  <!-- start date  -->
+          <!-- card wrapper -->
+        <div class="card">
+          <!-- card header -->
+          <div class="card-header">
+            <!-- card title -->
+            <h4>Start</h4>
+          </div>
+          <!-- card body -->
+          <div class="card-body">
+                <!-- <div id='datetimepicker'></div> -->
+          </div>
+          <!-- card footer -->
+          <div class="card-footer">
+            12:00 9 Maret 2018
+          </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <!-- end date -->
+                <!-- card wrapper -->
+        <div class="card">
+          <!-- card header -->
+          <div class="card-header">
+            <!-- card title -->
+            <h4>End</h4>
+          </div>
+          <!-- card body -->
+          <div class="card-body">
+                <!-- <div id='datetimepicker'></div> -->
+          </div>
+          <!-- card footer -->
+          <div class="card-footer">
+            12:00 9 Maret 2018
+          </div>
+        </div>
+    </div>
   </div>
   <!-- Top Domain result -->
   <div class="row">
@@ -136,7 +122,7 @@
                       <tr>
                         <td><a href="#">203.96.78.3</a></td>
                         <td class="font-weight-600">1,000</td>
-                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                        <td><a href="#" class="btn btn-secondary" id="toggle-modal">Detail</a></td>
                       </tr>
                     </table>
                   </div>
@@ -162,7 +148,7 @@
                 <tr>
                   <td><a href="#">105.42.89.111</a></td>
                   <td class="font-weight-600">1,500</td>
-                  <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                  <td><a href="#" class="btn btn-secondary" id="toggle-modal">Detail</a></td>
                 </tr>
               </table>
             </div>
@@ -185,7 +171,7 @@
                 <tr>
                   <td><a href="#">105.42.89.111</a></td>
                   <td class="font-weight-600">1,500</td>
-                  <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                  <td><a href="#" class="btn btn-secondary" id="toggle-modal">Detail</a></td>
                 </tr>
               </table>
             </div>
@@ -194,6 +180,12 @@
     </div>    
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div id='datetimepicker'></div>
+    </div>
+  </div>
+  
   <!-- Detailed DNS Record -->
   <div class="row">
     <div class="col-md-12">
@@ -216,7 +208,12 @@
                     <table class="table table-striped" id="myTable">
                     <thead>
                       <tr>
-                        <th>Date</th>
+                      <td>Date</td>
+                      <td>Source</td>
+                      <td>Destination</td>
+                      <td>Query</td>
+                      <td>Detail</td>
+                        <!-- <th>Date</th>
                         <th>uid</th>
                         <th>orig_h </th>
                         <th>orig_p</th>
@@ -234,7 +231,7 @@
                         <th>Z</th>
                         <th>answers</th>
                         <th>TTLs</th>
-                        <th>rejected</th>
+                        <th>rejected</th> -->
                       </tr>
                     </thead>
                     <tbody>
@@ -244,7 +241,8 @@
                 </div>
               </div>
     </div>
-  </div>   
+  </div>  
+</div> 
 
 @endsection
 
@@ -290,8 +288,19 @@
       var answers = "<td>"+ val.answers + "</td>";
       var TTLs = "<td>"+ val.TTLs + "</td>";
       var rejected = "<td>"+ val.rejected + "</td>";
+      var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
 
-      var tableRow = "<tr>"  + ts + uid + orig_h  + orig_p + resp_h + resp_p + proto + trans_id + query + rcode + rcode_name + AA + TC + RD + RA + Z + answers + TTLs + rejected + "</tr>";
+      var headRow = "<tbody> \
+                      <tr class='clickable' data-toggle='collapse' aria-expanded='false' aria-controls='group-of-rows-1'> \
+                        <td>"+ val.ts +"</td> \
+          	            <td>" + val.resp_h +"</td> \
+                        <td>"+ val.orig_h +"</td> \
+                        <td>"+ val.query +"</td> \
+                        <td>+</td> \
+                      </tr> \
+                    </tbody>";
+      var tableRow = "<tr>"  + ts + orig_h + resp_h + query + detail + "</tr>";
+      var tableRow2 = headRow;
       $('#myTable tbody').append($(tableRow));
   }
 
@@ -324,5 +333,12 @@ axios.get('http://dnsapi.abdullahainun.me/api/dnslogs/queries')
       $('#topDomainQuery tbody').append($(tableRow));
   }
 
+
+// script untuk tampilan
+$('#toggle-modal').fireModal({
+  title: 'My Modal',
+  content: 'Hello!'
+});
+</script>
 </script>
 @endsection

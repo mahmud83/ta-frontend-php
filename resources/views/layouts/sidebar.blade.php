@@ -12,7 +12,7 @@
 
         <li class="menu-header">Realtime Traffic</li>
          <li class="nav-item dropdown active">
-           <a href="#" class="nav-link has-dropdown"><i class="fal fa-traffic-light-go"></i><span>Realtime Traffic</span></a>
+           <a href="#" class="nav-link has-dropdown"><i class="fas fa-traffic-light"></i><span>Realtime Traffic</span></a>
            <ul class="dropdown-menu">
              <li><a class="nav-link" href="{{ action("TrafficController@all") }}">All Connections</a></li>
              <li class="active"><a class="nav-link" href="{{ action("TrafficController@dns") }}">DNS Connections</a></li>
