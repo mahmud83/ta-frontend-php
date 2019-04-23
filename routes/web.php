@@ -5,7 +5,9 @@
 //     // echo "hello";
 // });
 
+
 Route::get('/', 'HomeController@index');
+Route::get('/login', ['as' => 'login', 'uses' => 'SiteController@login']);
 
 // trafic
 Route::get('/traffic/all',['as' => 'all', 'uses' => 'TrafficController@all']);
@@ -14,15 +16,12 @@ Route::get('/traffic/dns',['as' => 'dns', 'uses' => 'TrafficController@dns']);
 // report
 Route::get('/report/all',['as' => 'all', 'uses' => 'ReportController@all']);
 Route::get('/report/dns',['as' => 'dns', 'uses' => 'ReportController@dns']);
+Route::get('/report/test',['as' => 'test', 'uses' => 'ReportController@test']);
+Route::get('/report/statistic',['as' => 'statistic', 'uses' => 'ReportController@statistic']);
 
 Route::get('/proses-register','Auth\RegisterController@create')->name('proses-register');
 Route::get('/forgot-password','SiteController@forgotPassword');
 
-// DAK
-Route::get('/dak',['as' => 'dak', 'uses' => 'DakController@index']);
-Route::get('/dak/sma',['as' => 'daksma','uses'=>'DakController@sma']);
-Route::get('/dak/smk',['as' => 'daksmk', 'uses' =>'DakController@smk']);
-Route::get('/dak/pkplk',['as' => 'dakpkplk', 'uses' =>'DakController@pkplk']);
 
 
 // Auth::routes();

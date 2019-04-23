@@ -11,22 +11,24 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
      public function index()
      {
-       return view('admin.index');
+    //    return view('admin.index');
+        echo "index";
      }
-    //  public function login()
-    //  {
-    //    return view('admin.login');
-    //  }
-    // public function register()
-    //  {
-    //    return view('admin.register');
-    //  }
+     public function login()
+     {
+        //  echo "helo";
+       return view('auth.login');
+     }
+    public function register()
+     {
+       return view('admin.register');
+     }
      public function forgotPassword()
      {
        return view('admin.forgot-password');

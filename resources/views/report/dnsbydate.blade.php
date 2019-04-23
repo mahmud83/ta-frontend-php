@@ -1,6 +1,9 @@
+<?php
+  $start = $_GET['startday'];
+  $end = $_GET['endday'];
+?>
 @extends('layouts.app')
 @section('head-script')
-<link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/jqvmap/dist/jqvmap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 @endsection
 @section('content')
@@ -19,15 +22,15 @@
         <div class="card-stats-title">Traffic Statistics</div>
         <div class="card-stats-items">
           <div class="card-stats-item">
-            <div class="card-stats-item-count">0</div>
+            <div class="card-stats-item-count">24</div>
             <div class="card-stats-item-label">Conn</div>
           </div>
           <div class="card-stats-item">
-            <div class="card-stats-item-count">0</div>
+            <div class="card-stats-item-count">12</div>
             <div class="card-stats-item-label">Malicious</div>
           </div>
           <div class="card-stats-item">
-            <div class="card-stats-item-count">0</div>
+            <div class="card-stats-item-count">23</div>
             <div class="card-stats-item-label">Normal</div>
           </div>
         </div>
@@ -83,6 +86,7 @@
 
 </div>
 
+<!-- start row2 -->
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
@@ -95,7 +99,6 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Type</th>
                 <th>Count</th>
               </tr>
             </thead>
@@ -136,21 +139,19 @@
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
       <div class="card-header">
-        <h4>Top Queried Returning NXDOMAIN</h4>
+        <h4>Top RCODE</h4>
       </div>
       <div class="card-body p-0">
         <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
-          <table class="table table-striped">
-            <tr>
-              <th>IP Address</th>
-              <th>Count</th>
-              <th>Detail</th>
-            </tr>
-            <tr>
-              <td><a href="#">203.96.78.3</a></td>
-              <td class="font-weight-600">1,000</td>
-              <td><a href="#" class="btn btn-secondary" id="toggle-modal">Detail</a></td>
-            </tr>
+          <table class="table table-striped" id="topRcode">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
           </table>
         </div>
         <div class="float-right">
@@ -184,6 +185,110 @@
     </div>
   </div>  
 </div>
+<!-- end row2 -->
+
+<!-- start row3 -->
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Top Origin</h4>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
+          <table class="table table-striped" id="toporigin">
+            <thead>
+              <tr>
+                <th>IP Address</th>
+                <th>Count</th>
+                <th>Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <div class="float-right">
+          <nav>
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Top Responder</h4>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
+          <table class="table table-striped" id="topresponder">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <div class="float-right">
+          <nav>
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+<!-- end row3 -->
 
 <!-- Detailed DNS Record -->
 <div class="row">
@@ -314,8 +419,33 @@
 
 @section('foot-script')
 <script>
+    // get top resp
+  axios.get('http://localhost:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      $.each(data, function (index, value) {
+        //  console.log(value);       // READ THE DATA.      
+        bindTopRcode(value);
+      });
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+  
+  function bindTopRcode(val){
+    var name = "<td>" + val.name + "</td>";
+    var count = "<td>" + val.value + "</td>";    
+    var tableRow = "<tr>" + name + count + "</tr>";
+    $('#topRcode tbody').append($(tableRow));
+  }
+
   // get all dnslogs
-  axios.get('http://localhost:9090/api/dnslogs')
+  axios.get('http://localhost:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -331,7 +461,7 @@
     .then(function () {
       // always executed
     });
-
+  
   function bindDnslogs(val) {
     // var box = "<td><div class='sort-handler'><i class='fas fa-th'></i></div></td>";
     var ts = "<td>" + val.ts + "</td>";
@@ -369,14 +499,36 @@
     $('#myTable tbody').append($(tableRow));
   }
 
-  // get all dnslogs
-  axios.get('http://localhost:9090/api/dnslogs/queries')
+  // // get dns total
+  // axios.get('http://localhost:9090/api/dnslogtotal/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
+  //   .then(function (response) {
+  //     var data = response.data.data
+  //     // handle success
+  //     $.each(data, function (index, value) {
+  //       //  console.log(value);       // READ THE DATA.      
+  //       bindDnstotal(value);
+  //     });
+  //   })
+  //   .catch(function (error) {
+  //     // handle error
+  //     console.log(error);
+  //   })
+  //   .then(function () {
+  //     // always executed
+  //   });
+  // function bindDnstotal(val){
+  //   // bind to dns total
+  // }
+
+  // get dnslogqueries
+  // http://localhost:9090/api/dnslogqueries/2019-04-11/2019-04-11
+  axios.get('http://localhost:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
       $.each(data, function (index, value) {
         //  console.log(value);       // READ THE DATA.      
-        bindQueries(value);
+        bindDnsQuery(value);
       });
     })
     .catch(function (error) {
@@ -386,19 +538,70 @@
     .then(function () {
       // always executed
     });
-
-  function bindQueries(val) {
-    console.log(val);
-    // var box = "<td><div class='sort-handler'><i class='fas fa-th'></i></div></td>";
+  
+  function bindDnsQuery(val){
     var name = "<td>" + val.name + "</td>";
-    var type = "<td class='font-weight-600'>" + val.rcode_name + "</td>";
-    var value = "<td><div class='badge badge-warning'>" + val.value + "</div></td>";
-
-    var tableRow = "<tr>" + name + type + value + "</tr>";
+    var count = "<td>" + val.value + "</td>";
+    
+    var tableRow = "<tr>" + name  + count + "</tr>";
     $('#topDomainQuery tbody').append($(tableRow));
   }
 
-
+    // get top origin
+  // http://localhost:9090/api/dnslogorigh/2019-04-11/2019-04-11
+  axios.get('http://localhost:9090/api/dnslogorigh/<?php echo $start ?>/<?php echo $end ?>')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      $.each(data, function (index, value) {
+        //  console.log(value);       // READ THE DATA.      
+        bindTopOrigin(value);
+      });
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+  
+  function bindTopOrigin(val){
+    var ip_address = "<td>" + val.name + "</td>";
+    var count = "<td>" + val.value + "</td>";
+    var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
+    
+    var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
+    $('#toporigin tbody').append($(tableRow));
+  }
+    
+  // get top resp
+  axios.get('http://localhost:9090/api/dnslogresph/<?php echo $start ?>/<?php echo $end ?>')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      $.each(data, function (index, value) {
+        //  console.log(value);       // READ THE DATA.      
+        bindTopResp(value);
+      });
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+  
+  function bindTopResp(val){
+    var ip_address = "<td>" + val.name + "</td>";
+    var count = "<td>" + val.value + "</td>";
+    var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
+    
+    var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
+    $('#topresponder tbody').append($(tableRow));
+  }
+  // http://localhost:9090/api/dnslogresph/2019-04-11/2019-04-11
   // script untuk tampilan
   $('#toggle-modal').fireModal({
     title: 'My Modal',

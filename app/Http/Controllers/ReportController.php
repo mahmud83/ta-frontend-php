@@ -20,6 +20,14 @@ class ReportController extends Controller
          return view('report.dns');
     }
 
+    public function test()
+    {
+         return view('report.dnsbydate');
+    }
+    public function statistic(){
+         return view('report.statistic');
+    }
+
     
     /**
      * Show the form for creating a new resource.

@@ -24,7 +24,8 @@
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-history"></i><span>Report</span></a>
             <ul class="dropdown-menu">
               <!-- <li><a class="nav-link" href="{{ action("HomeController@index") }}">Connection Traffic</a></li> -->
-              <li><a class="nav-link" href="{{ action("ReportController@dns") }}">DNS Query</a></li>
+              <li><a class="nav-link" href="{{ action("ReportController@dns") }}">Tables</a></li>
+              <li><a class="nav-link" href="{{ action("ReportController@statistic") }}">Statistics</a></li>
             </ul>
           </li>       
       </ul>
