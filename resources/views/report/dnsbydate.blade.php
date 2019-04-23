@@ -420,7 +420,7 @@
 @section('foot-script')
 <script>
     // get top resp
-  axios.get('http://localhost:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://abdullahainun.me:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -445,7 +445,7 @@
   }
 
   // get all dnslogs
-  axios.get('http://localhost:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
+  axios.get('http://abdullahainun.me:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -500,7 +500,7 @@
   }
 
   // // get dns total
-  // axios.get('http://localhost:9090/api/dnslogtotal/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
+  // axios.get('http://abdullahainun.me:9090/api/dnslogtotal/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
   //   .then(function (response) {
   //     var data = response.data.data
   //     // handle success
@@ -521,8 +521,8 @@
   // }
 
   // get dnslogqueries
-  // http://localhost:9090/api/dnslogqueries/2019-04-11/2019-04-11
-  axios.get('http://localhost:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>')
+  // http://abdullahainun.me:9090/api/dnslogqueries/2019-04-11/2019-04-11
+  axios.get('http://abdullahainun.me:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -548,8 +548,8 @@
   }
 
     // get top origin
-  // http://localhost:9090/api/dnslogorigh/2019-04-11/2019-04-11
-  axios.get('http://localhost:9090/api/dnslogorigh/<?php echo $start ?>/<?php echo $end ?>')
+  // http://abdullahainun.me:9090/api/dnslogorigh/2019-04-11/2019-04-11
+  axios.get('http://abdullahainun.me:9090/api/dnslogorigh/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -576,7 +576,7 @@
   }
     
   // get top resp
-  axios.get('http://localhost:9090/api/dnslogresph/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://abdullahainun.me:9090/api/dnslogresph/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -601,7 +601,7 @@
     var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
     $('#topresponder tbody').append($(tableRow));
   }
-  // http://localhost:9090/api/dnslogresph/2019-04-11/2019-04-11
+  // http://abdullahainun.me:9090/api/dnslogresph/2019-04-11/2019-04-11
   // script untuk tampilan
   $('#toggle-modal').fireModal({
     title: 'My Modal',
