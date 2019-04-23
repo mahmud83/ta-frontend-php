@@ -5,7 +5,85 @@
 <script type="text/javascript" src="{{ asset('/js') }}/chartjs-plugin-colorschemes.min.js"></script>
 @endsection
 @section('content')
-<!-- row 1 -->
+<div class="section-header">
+  <h1>Report Statistic</h1>
+  <div class="section-header-breadcrumb">
+    <div class="breadcrumb-item active"><a href="#">statistic</a></div>
+    <div class="breadcrumb-item">DNS Report statistic</div>
+  </div>
+</div>
+<!-- start row1 -->
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="card card-statistic-2">
+      <div class="card-stats">
+        <div class="card-stats-title">Traffic Statistics</div>
+        <div class="card-stats-items">
+          <div class="card-stats-item">
+            <div class="card-stats-item-count">24</div>
+            <div class="card-stats-item-label">Conn</div>
+          </div>
+          <div class="card-stats-item">
+            <div class="card-stats-item-count">12</div>
+            <div class="card-stats-item-label">Malicious</div>
+          </div>
+          <div class="card-stats-item">
+            <div class="card-stats-item-count">23</div>
+            <div class="card-stats-item-label">Normal</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-icon shadow-primary bg-primary">
+        <i class="fas fa-archive"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Total Connections</h4>
+        </div>
+        <div class="card-body">
+          59
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-12">
+    <!-- start date  -->
+    <!-- card wrapper -->
+    <div class="card">
+      <!-- card header -->
+      <div class="card-header">
+        <!-- card title -->
+        <h4>Periode</h4>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+        <div class="row">
+          <form action="{{ action('ReportController@test') }}" method="get">
+            <div class="row">
+              <div class="col-md">
+                <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>
+              </div>
+              <div class="col-md">
+                <?php echo "<input type='date' class='form-control' name='endday' value='".date("Y-m-d")."'>"; ?>
+              </div>
+              <div class="col-md2"></div>
+              <div class="col-md2">
+                <input class="btn btn-success" type="submit">
+              </div>
+            </div>
+            <!-- <button ><i class="fas fa-submit"></i></button> -->
+          </form>
+        </div>
+        <!-- card footer -->
+        <div class="card-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row1 -->
+
+</div>
+<!-- row 2 -->
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
