@@ -94,33 +94,6 @@
         <canvas id="toprcode" width="100" height="100"></canvas>
       </div>
       <div class="card-body p-0">
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </div>
   </div>
@@ -131,36 +104,9 @@
         <h4>Top Query</h4>
       </div>
       <div class="card-body-0">
-        <canvas id="" width="100" height="100"></canvas>
+        <canvas id="topprotokol" width="100" height="100"></canvas>
       </div>
       <div class="card-body p-0">
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </div>
   </div>
@@ -176,33 +122,6 @@
         <canvas id="topquery" width="100" height="100"></canvas>
       </div>
       <div class="card-body p-0">
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </div>
   </div>
@@ -219,31 +138,6 @@
       </div>
       <div class="card-body p-0">
         <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -258,33 +152,6 @@
         <canvas id="toprespon" width="100" height="100"></canvas>
       </div>
       <div class="card-body p-0">
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </div>
   </div>
@@ -321,6 +188,15 @@
       label: "simple chart pie",
       text: "hello apa kabar",
     };
+    var topprotokolConfig = {
+      url: hostname + "/connlogprotokol/2019-04-11/2019-04-11/",
+      id: "topprotokol",
+      type: "pie",
+      xAxisName: "name", //X-Axis Label Names from List
+      yAxisName: "value", //Y-Axis Values from List
+      label: "Top Protokol",
+      text: "",
+    }
     var topqueryConfig = {
       url: hostname + "/dnslogqueries/2019-04-11/2019-04-11",
       id: "topquery",
@@ -331,22 +207,22 @@
       text: "Domain yang paling banyak di akses",
     };
     var toporiginConfig = {
-      url: hostname + "/dnslogorigh/2019-04-11/2019-04-11",
+      url: hostname + "/connlogtoporigin/2019-04-11/2019-04-11",
       id: "toporigin",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
       yAxisName: "value", //Y-Axis Values from List
       label: "Source Address",
-      text: "Domain yang paling banyak di akses",
+      text: "",
     };
     var topresponConfig = {
-      url: hostname + "/dnslogresph/2019-04-11/2019-04-11",
+      url: hostname + "/connlogtopresp/2019-04-11/2019-04-11",
       id: "toprespon",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
       yAxisName: "value", //Y-Axis Values from List
       label: "Destination Address",
-      text: "Domain yang paling banyak di akses",
+      text: "",
     };
 
     // rcode

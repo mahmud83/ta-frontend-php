@@ -14,41 +14,10 @@
     <div class="breadcrumb-item">DNS Report tables</div>
   </div>
 </div>
+
 <!-- start row1 -->
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-12">
-    <div class="card card-statistic-2">
-      <div class="card-stats">
-        <div class="card-stats-title">Traffic Statistics</div>
-        <div class="card-stats-items">
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">24</div>
-            <div class="card-stats-item-label">Conn</div>
-          </div>
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">12</div>
-            <div class="card-stats-item-label">Malicious</div>
-          </div>
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">23</div>
-            <div class="card-stats-item-label">Normal</div>
-          </div>
-        </div>
-      </div>
-      <div class="card-icon shadow-primary bg-primary">
-        <i class="fas fa-archive"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Total Connections</h4>
-        </div>
-        <div class="card-body">
-          59
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 col-sm-12">
+  <div class="col-lg-12 col-md-12 col-sm-12">
     <!-- start date  -->
     <!-- card wrapper -->
     <div class="card">
@@ -86,6 +55,53 @@
 
 </div>
 
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-primary">
+        <i class="far fa-user"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Total Connections</h4>
+        </div>
+        <div class="card-body">
+          <p id="total"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-danger">
+        <i class="far fa-newspaper"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Malicious</h4>
+        </div>
+        <div class="card-body">
+          <p id="malicious"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-success">
+        <i class="fas fa-circle"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Normal</h4>
+        </div>
+        <div class="card-body">
+          <p id="normal"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- start row2 -->
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-12">
@@ -183,7 +199,7 @@
         </div>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 <!-- end row2 -->
 
@@ -286,7 +302,7 @@
         </div>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 <!-- end row3 -->
 
@@ -393,33 +409,15 @@
       </div>
       <div class="card-body p-0">
         <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
-          <table class="table table-striped" id="myTable">
+          <table class="table table-striped" id="klasifikasi">
             <thead>
               <tr>
-                <td>Date</td>
+                <td>uid</td>
                 <td>Source</td>
+                <td>Source Port</td>
                 <td>Destination</td>
-                <td>Query</td>
-                <td>Detail</td>
-                <!-- <th>Date</th>
-                        <th>uid</th>
-                        <th>orig_h </th>
-                        <th>orig_p</th>
-                        <th>resp_h</th>
-                        <th>resp_p</th>
-                        <th>proto</th>
-                        <th>trans_id</th>
-                        <th>query</th>
-                        <th>rcode</th>
-                        <th>rcode_name</th>
-                        <th>AA</th>
-                        <th>TC</th>
-                        <th>RD</th>
-                        <th>RA</th>
-                        <th>Z</th>
-                        <th>answers</th>
-                        <th>TTLs</th>
-                        <th>rejected</th> -->
+                <td>Destination Port</td>
+                <td>Label</td>
               </tr>
             </thead>
             <tbody>
@@ -461,7 +459,7 @@
 
 @section('foot-script')
 <script>
-    // get top resp
+  // get top resp
   axios.get('http://abdullahainun.me:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
@@ -478,10 +476,10 @@
     .then(function () {
       // always executed
     });
-  
-  function bindTopRcode(val){
+
+  function bindTopRcode(val) {
     var name = "<td>" + val.name + "</td>";
-    var count = "<td>" + val.value + "</td>";    
+    var count = "<td>" + val.value + "</td>";
     var tableRow = "<tr>" + name + count + "</tr>";
     $('#topRcode tbody').append($(tableRow));
   }
@@ -503,7 +501,7 @@
     .then(function () {
       // always executed
     });
-  
+
   function bindDnslogs(val) {
     // var box = "<td><div class='sort-handler'><i class='fas fa-th'></i></div></td>";
     var ts = "<td>" + val.ts + "</td>";
@@ -580,16 +578,16 @@
     .then(function () {
       // always executed
     });
-  
-  function bindDnsQuery(val){
+
+  function bindDnsQuery(val) {
     var name = "<td>" + val.name + "</td>";
     var count = "<td>" + val.value + "</td>";
-    
-    var tableRow = "<tr>" + name  + count + "</tr>";
+
+    var tableRow = "<tr>" + name + count + "</tr>";
     $('#topDomainQuery tbody').append($(tableRow));
   }
 
-    // get top origin
+  // get top origin
   // http://abdullahainun.me:9090/api/dnslogorigh/2019-04-11/2019-04-11
   axios.get('http://abdullahainun.me:9090/api/dnslogorigh/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
@@ -607,16 +605,16 @@
     .then(function () {
       // always executed
     });
-  
-  function bindTopOrigin(val){
+
+  function bindTopOrigin(val) {
     var ip_address = "<td>" + val.name + "</td>";
     var count = "<td>" + val.value + "</td>";
     var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
-    
+
     var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
     $('#toporigin tbody').append($(tableRow));
   }
-    
+
   // get top resp
   axios.get('http://abdullahainun.me:9090/api/dnslogresph/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
@@ -634,15 +632,104 @@
     .then(function () {
       // always executed
     });
-  
-  function bindTopResp(val){
+
+  function bindTopResp(val) {
     var ip_address = "<td>" + val.name + "</td>";
     var count = "<td>" + val.value + "</td>";
     var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
-    
+
     var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
     $('#topresponder tbody').append($(tableRow));
   }
+
+  // get all klasifikasi
+  axios.get('http://abdullahainun.me:9090/api/classifications/2019-04-11/2019-04-11/?pageNo=1&size=10')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      $.each(data, function (index, value) {
+        //  console.log(value);       // READ THE DATA.      
+        bindklasifikasi(value);
+      });
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
+  function bindklasifikasi(val) {
+    var uid = "<td>" + val.uid + "</td>";
+    var orig_h = "<td>" + val.orig_h + "</td>";
+    var orig_p = "<td>" + val.orig_p + "</td>";
+    var resp_h = "<td>" + val.resp_h + "</td>";
+    var resp_p = "<td>" + val.resp_p + "</td>";
+    var label = "<td>" + val.label + "</td>";
+
+    var tableRow = "<tr>" + uid + orig_h + orig_p + resp_h + resp_p + label + "</tr>";
+    $('#klasifikasi tbody').append($(tableRow));
+  }
+
+  // count malicious traffic
+  axios.get('http://abdullahainun.me:9090/api/classification/getmaliciouscount')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      bindmaliciouscount(data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
+  function bindmaliciouscount(val) {
+    $('#malicious').text(val);
+    // console.log(val);
+  }
+
+  // count normal traffic
+  axios.get('http://abdullahainun.me:9090/api/classification/getnormalcount')
+    .then(function (response) {
+      var data = response.data.data
+      bindnormalcount(data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
+  function bindnormalcount(val) {
+    $('#normal').text(val);
+    // console.log(val);
+  }
+
+  // total count
+  axios.get('http://abdullahainun.me:9090/api/connlogtotal/2019-04-11/2019-04-11')
+    .then(function (response) {
+      var data = response.data.data
+      bindconncount(data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
+  function bindconncount(val) {
+    $('#total').text(val);
+    // console.log(val);
+  }
+
   // http://abdullahainun.me:9090/api/dnslogresph/2019-04-11/2019-04-11
   // script untuk tampilan
   $('#toggle-modal').fireModal({
