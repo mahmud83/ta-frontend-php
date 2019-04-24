@@ -390,12 +390,12 @@
   </div>
 </div>
 
-<!-- malicious and normal -->
+<!-- Malicious -->
 <div class="row">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4>Malicious and Normal Traffic</h4>
+        <h4>Malicious</h4>
         <div class="card-header-action">
           <form>
             <div class="input-group">
@@ -409,9 +409,10 @@
       </div>
       <div class="card-body p-0">
         <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
-          <table class="table table-striped" id="klasifikasi">
+          <table class="table table-striped" id="malicioustable">
             <thead>
               <tr>
+                <td>date</td>
                 <td>uid</td>
                 <td>Source</td>
                 <td>Source Port</td>
@@ -589,7 +590,7 @@
 
   // get top origin
   // http://abdullahainun.me:9090/api/dnslogorigh/2019-04-11/2019-04-11
-  axios.get('http://abdullahainun.me:9090/api/dnslogorigh/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://abdullahainun.me:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -642,14 +643,14 @@
     $('#topresponder tbody').append($(tableRow));
   }
 
-  // get all klasifikasi
-  axios.get('http://abdullahainun.me:9090/api/classifications/2019-04-11/2019-04-11/?pageNo=1&size=10')
+  // get all malicious
+  axios.get('http://abdullahainun.me:9090/api/klasifikasimalicious/2019-04-11/2019-04-11/?pageNo=1&size=10')
     .then(function (response) {
       var data = response.data.data
       // handle success
       $.each(data, function (index, value) {
-        //  console.log(value);       // READ THE DATA.      
-        bindklasifikasi(value);
+        //  console.log(value);   
+        bindmalicious(value);
       });
     })
     .catch(function (error) {
@@ -660,7 +661,8 @@
       // always executed
     });
 
-  function bindklasifikasi(val) {
+  function bindmalicious(val) {
+    var date = "<td>" + val.ts + "</td>";
     var uid = "<td>" + val.uid + "</td>";
     var orig_h = "<td>" + val.orig_h + "</td>";
     var orig_p = "<td>" + val.orig_p + "</td>";
@@ -668,8 +670,8 @@
     var resp_p = "<td>" + val.resp_p + "</td>";
     var label = "<td>" + val.label + "</td>";
 
-    var tableRow = "<tr>" + uid + orig_h + orig_p + resp_h + resp_p + label + "</tr>";
-    $('#klasifikasi tbody').append($(tableRow));
+    var tableRow = "<tr>" + date + uid + orig_h + orig_p + resp_h + resp_p + label + "</tr>";
+    $('#malicioustable tbody').append($(tableRow));
   }
 
   // count malicious traffic
@@ -688,7 +690,7 @@
     });
 
   function bindmaliciouscount(val) {
-    $('#malicious').text(val);
+    $('#malicious').text(val);    
     // console.log(val);
   }
 

@@ -14,39 +14,7 @@
 </div>
 <!-- start row1 -->
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-12">
-    <div class="card card-statistic-2">
-      <div class="card-stats">
-        <div class="card-stats-title">Traffic Statistics</div>
-        <div class="card-stats-items">
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">24</div>
-            <div class="card-stats-item-label">Conn</div>
-          </div>
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">12</div>
-            <div class="card-stats-item-label">Malicious</div>
-          </div>
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">23</div>
-            <div class="card-stats-item-label">Normal</div>
-          </div>
-        </div>
-      </div>
-      <div class="card-icon shadow-primary bg-primary">
-        <i class="fas fa-archive"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Total Connections</h4>
-        </div>
-        <div class="card-body">
-          59
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 col-sm-12">
+  <div class="col-lg-12 col-md-12 col-sm-12">
     <!-- start date  -->
     <!-- card wrapper -->
     <div class="card">
@@ -83,7 +51,24 @@
   <!-- end row1 -->
 
 </div>
-<!-- row 2 -->
+
+<!-- Malicious traffic-->
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Klasifikasi</h4>
+      </div>
+      <div class="card-body-0">
+        <canvas id="klasifikasi" width="100" height="100"></canvas>
+      </div>
+      <div class="card-body p-0">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- top rcode -->
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
@@ -101,7 +86,7 @@
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
       <div class="card-header">
-        <h4>Top Query</h4>
+        <h4>Top Protokol</h4>
       </div>
       <div class="card-body-0">
         <canvas id="topprotokol" width="100" height="100"></canvas>
@@ -111,7 +96,7 @@
     </div>
   </div>
 </div>
-<!-- row 2 -->
+<!-- top protokol -->
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
@@ -126,6 +111,8 @@
     </div>
   </div>
 </div>
+
+
 <!-- row 3 -->
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-12">
@@ -224,16 +211,28 @@
       label: "Destination Address",
       text: "",
     };
+    var klasifikasiConfig = {
+      url: hostname + "/classification/klasifikasicount",
+      id: "klasifikasi",
+      type: "pie",
+      xAxisName: "name", //X-Axis Label Names from List
+      yAxisName: "value", //Y-Axis Values from List
+      label: "Destination Address",
+      text: "",
+    };
 
+    // klasifikasi
+    generateChart(klasifikasiConfig);
     // rcode
     generateChart(toprcodeConfig);
+    // top protokol
+    generateChart(topprotokolConfig);
     // topquery
     generateChart(topqueryConfig);
     // top origin
     generateChart(toporiginConfig);
     // top respoon
     generateChart(topresponConfig);
-
   });
 </script>
 @endsection

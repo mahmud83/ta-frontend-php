@@ -10,14 +10,14 @@
          <!-- <li class="menu-header">Dashboard</li> -->
          <!-- <a href="{{ action("HomeController@index") }}" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>     -->
 
-        <li class="menu-header">Realtime Traffic</li>
+        <!-- <li class="menu-header">Realtime Traffic</li>
          <li class="nav-item dropdown active">
            <a href="#" class="nav-link has-dropdown"><i class="fas fa-traffic-light"></i><span>Realtime Traffic</span></a>
            <ul class="dropdown-menu">
              <li><a class="nav-link" href="{{ action("TrafficController@all") }}">All Connections</a></li>
              <li class="active"><a class="nav-link" href="{{ action("TrafficController@dns") }}">DNS Connections</a></li>
            </ul>
-         </li>
+         </li> -->
 
         <li class="menu-header">Report</li>
           <li class="nav-item dropdown active">          

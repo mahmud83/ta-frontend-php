@@ -13,39 +13,7 @@
 </div>
 <!-- start row1 -->
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-12">
-    <div class="card card-statistic-2">
-      <div class="card-stats">
-        <div class="card-stats-title">Traffic Statistics</div>
-        <div class="card-stats-items">
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">0</div>
-            <div class="card-stats-item-label">Conn</div>
-          </div>
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">0</div>
-            <div class="card-stats-item-label">Malicious</div>
-          </div>
-          <div class="card-stats-item">
-            <div class="card-stats-item-count">0</div>
-            <div class="card-stats-item-label">Normal</div>
-          </div>
-        </div>
-      </div>
-      <div class="card-icon shadow-primary bg-primary">
-        <i class="fas fa-archive"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Total Connections</h4>
-        </div>
-        <div class="card-body">
-          59
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 col-sm-12">
+  <div class="col-lg-12 col-md-12 col-sm-12">
     <!-- start date  -->
     <!-- card wrapper -->
     <div class="card">
