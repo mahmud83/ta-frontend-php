@@ -644,7 +644,7 @@
   }
 
   // get all malicious
-  axios.get('http://abdullahainun.me:9090/api/klasifikasimalicious/2019-04-11/2019-04-11/?pageNo=1&size=10')
+  axios.get('http://abdullahainun.me:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=10')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -675,7 +675,7 @@
   }
 
   // count malicious traffic
-  axios.get('http://abdullahainun.me:9090/api/classification/getmaliciouscount')
+  axios.get('http://abdullahainun.me:9090/api/classification/getmaliciouscount/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -695,7 +695,7 @@
   }
 
   // count normal traffic
-  axios.get('http://abdullahainun.me:9090/api/classification/getnormalcount')
+  axios.get('http://abdullahainun.me:9090/api/classification/getnormalcount/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       bindnormalcount(data);
@@ -714,7 +714,7 @@
   }
 
   // total count
-  axios.get('http://abdullahainun.me:9090/api/connlogtotal/2019-04-11/2019-04-11')
+  axios.get('http://abdullahainun.me:9090/api/connlogtotal/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       bindconncount(data);
