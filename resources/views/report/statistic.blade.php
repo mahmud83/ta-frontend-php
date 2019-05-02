@@ -167,7 +167,7 @@
       "http://abdullahainun.me:9090/api/dnslogqueries/2019-04-11/2019-04-11"
     ];
     var toprcodeConfig = {
-      url: hostname + "/dnslogrcodes/2019-04-11/2019-04-11/",
+      url: hostname + "/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",
       id: "toprcode",
       type: "pie",
       xAxisName: "name", //X-Axis Label Names from List
@@ -176,7 +176,7 @@
       text: "hello apa kabar",
     };
     var topprotokolConfig = {
-      url: hostname + "/connlogprotokol/2019-04-11/2019-04-11/",
+      url: hostname + "/connlogprotokol/<?php echo $start ?>/<?php echo $end ?>",
       id: "topprotokol",
       type: "pie",
       xAxisName: "name", //X-Axis Label Names from List
@@ -185,7 +185,7 @@
       text: "",
     }
     var topqueryConfig = {
-      url: hostname + "/dnslogqueries/2019-04-11/2019-04-11",
+      url: hostname + "/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>",
       id: "topquery",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
@@ -194,7 +194,7 @@
       text: "Domain yang paling banyak di akses",
     };
     var toporiginConfig = {
-      url: hostname + "/connlogtoporigin/2019-04-11/2019-04-11",
+      url: hostname + "/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>",
       id: "toporigin",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
@@ -203,7 +203,7 @@
       text: "",
     };
     var topresponConfig = {
-      url: hostname + "/connlogtopresp/2019-04-11/2019-04-11",
+      url: hostname + "/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>",
       id: "toprespon",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
@@ -212,7 +212,7 @@
       text: "",
     };
     var klasifikasiConfig = {
-      url: hostname + "/classification/klasifikasicount",
+      url: hostname + "/classification/klasifikasicount/<?php echo $start ?>/<?php echo $end ?>",
       id: "klasifikasi",
       type: "pie",
       xAxisName: "name", //X-Axis Label Names from List
