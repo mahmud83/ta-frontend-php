@@ -15,9 +15,10 @@ Route::get('/traffic/dns',['as' => 'dns', 'uses' => 'TrafficController@dns']);
 
 // report
 Route::get('/report/all',['as' => 'all', 'uses' => 'ReportController@all']);
-Route::get('/report/dns',['as' => 'dns', 'uses' => 'ReportController@dns']);
-Route::get('/report/test',['as' => 'test', 'uses' => 'ReportController@test']);
+Route::get('/report/tables',['as' => 'tables', 'uses' => 'ReportController@tables']);
 Route::get('/report/statistic',['as' => 'statistic', 'uses' => 'ReportController@statistic']);
+Route::get('/report/res-tables',['as' => 'resTables', 'uses' => 'ReportController@resTables']);
+Route::get('/report/res-statistic',['as' => 'resStatistic', 'uses' => 'ReportController@resStatistic']);
 
 Route::get('/proses-register','Auth\RegisterController@create')->name('proses-register');
 Route::get('/forgot-password','SiteController@forgotPassword');

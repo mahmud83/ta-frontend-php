@@ -15,16 +15,19 @@ class ReportController extends Controller
     // {
     //     $this->middleware('auth');
     // }
-    public function dns()
+    public function tables()
     {
-         return view('report.dns');
+         return view('report.indextables');
     }
-
-    public function test()
+    public function statistic()
+    {
+         return view('report.indexstatistic');
+    }
+    public function resTables()
     {
          return view('report.dnsbydate');
     }
-    public function statistic(){
+    public function resStatistic(){
          return view('report.statistic');
     }
 

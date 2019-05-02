@@ -8,13 +8,12 @@
 @endsection
 @section('content')
 <div class="section-header">
-  <h1>Report Tables</h1>
+  <h1>Report</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item active"><a href="#">tables</a></div>
-    <div class="breadcrumb-item">DNS Report tables</div>
+    <div class="breadcrumb-item active"><a href="#">statistic</a></div>
+    <div class="breadcrumb-item">DNS Report statistic</div>
   </div>
 </div>
-
 <!-- start row1 -->
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -29,7 +28,7 @@
       <!-- card body -->
       <div class="card-body">
         <div class="row">
-          <form action="{{ action('ReportController@test') }}" method="get">
+          <form action="{{ action('ReportController@resStatistic') }}" method="get">
             <div class="row">
               <div class="col-md">
                 <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>
@@ -54,23 +53,7 @@
   <!-- end row1 -->
 
 </div>
-
 <div class="row">
-  <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-    <div class="card card-statistic-1">
-      <div class="card-icon bg-primary">
-        <i class="far fa-user"></i>
-      </div>
-      <div class="card-wrap">
-        <div class="card-header">
-          <h4>Total Connections</h4>
-        </div>
-        <div class="card-body">
-          <p id="total"></p>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
       <div class="card-icon bg-danger">

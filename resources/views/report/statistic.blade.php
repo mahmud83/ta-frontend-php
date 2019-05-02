@@ -1,3 +1,7 @@
+<?php
+  $start = $_GET['startday'];
+  $end = $_GET['endday'];
+?>
 @extends('layouts.app')
 @section('head-script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
@@ -26,7 +30,7 @@
       <!-- card body -->
       <div class="card-body">
         <div class="row">
-          <form action="{{ action('ReportController@test') }}" method="get">
+          <form action="{{ action('ReportController@resStatistic') }}" method="get">
             <div class="row">
               <div class="col-md">
                 <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>

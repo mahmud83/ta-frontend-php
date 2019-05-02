@@ -25,7 +25,7 @@
       <!-- card body -->
       <div class="card-body">
         <div class="row">
-          <form action="{{ action('ReportController@test') }}" method="get">
+          <form action="{{ action('ReportController@resTables') }}" method="get">
             <div class="row">
               <div class="col-md">
                 <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>
@@ -46,8 +46,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- end row1 -->
+</div>
+<!-- end row1 -->
 
 </div>
 @endsection
