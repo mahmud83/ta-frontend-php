@@ -30,6 +30,9 @@ class ReportController extends Controller
     public function resStatistic(){
          return view('report.statistic');
     }
+    public function test(){
+         return view('report.test');
+    }
 
     
     /**

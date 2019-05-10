@@ -20,6 +20,10 @@ class SiteController extends Controller
     //    return view('admin.index');
         echo "index";
      }
+    public function welcome()
+     {
+        echo "index";
+     }
      public function login()
      {
         //  echo "helo";

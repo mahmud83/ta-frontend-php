@@ -5,6 +5,119 @@
 @extends('layouts.app')
 @section('head-script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#malicioustable').DataTable({
+      "ajax": "http://abdullahainun.me:9090/api/klasifikasimalicious/2019-05-08/2019-05-08/?pageNo=1&size=100",
+      "columns": [{
+          "data": "uid"
+        },
+        {
+          "data": "orig_h"
+        },
+        {
+          "data": "orig_p"
+        },
+        {
+          "data": "resp_h"
+        },
+        {
+          "data": "resp_p"
+        },
+        {
+          "data": "dns.0.query"
+        },
+        {
+          "data": "label"
+        }
+      ]
+    });
+  });
+  $(document).ready(function () {
+    $('#topDomainQuery').DataTable({
+      "ajax": "http://abdullahainun.me:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>",
+      "columns": [{
+          "data": "name"
+        },
+        {
+          "data": "value"
+        }
+      ]
+    });
+  });
+  $(document).ready(function () {
+    $('#topRcode').DataTable({
+      "ajax": "http://abdullahainun.me:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",
+      "columns": [{
+          "data": "name"
+        },
+        {
+          "data": "value"
+        }
+      ]
+    });
+  });
+  $(document).ready(function () {
+    $('#toporigin').DataTable({
+      "ajax": "http://abdullahainun.me:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>",
+      "columns": [{
+          "data": "name"
+        },
+        {
+          "data": "value"
+        }
+      ]
+    });
+  });
+  $(document).ready(function () {
+    $('#topresponder').DataTable({
+      "ajax": "http://abdullahainun.me:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>",
+      "columns": [{
+          "data": "name"
+        },
+        {
+          "data": "value"
+        }
+      ]
+    });
+  });
+  $(document).ready(function () {
+    $('#dnsrecord').DataTable({
+      "ajax": "http://abdullahainun.me:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
+      "columns": [{
+          "data": "ts"
+        },
+        {
+          "data": "uid"
+        },
+        {
+          "data": "id_orig_h"
+        },
+        {
+          "data": "id_orig_p"
+        },
+        {
+          "data": "id_resp_h"
+        },
+        {
+          "data": "id_resp_p"
+        },
+        {
+          "data": "proto"
+        },
+        {
+          "data": "query"
+        },
+      ]
+    });
+  });
+</script>
 @endsection
 @section('content')
 <div class="section-header">
@@ -90,47 +203,27 @@
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
       <div class="card-header">
-        <h4>Top Queried DNS Record</h4>
+        <h4>Queried DNS Record</h4>
       </div>
       <div class="card-body p-0">
-        <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
-          <table class="table table-striped" id="topDomainQuery">
+        <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
+          <table id="topDomainQuery" class="table table-striped" style="width:100%">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Count</th>
+                <th>name</th>
+                <th>count</th>
               </tr>
             </thead>
             <tbody>
+
             </tbody>
+            <tfoot>
+              <tr>
+                <th>name</th>
+                <th>count</th>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -138,47 +231,27 @@
   <div class="col-lg-6 col-md-6 col-sm-12">
     <div class="card">
       <div class="card-header">
-        <h4>Top RCODE</h4>
+        <h4>Top Rcode</h4>
       </div>
       <div class="card-body p-0">
-        <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
-          <table class="table table-striped" id="topRcode">
+        <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
+          <table id="topRcode" class="table table-striped" style="width:100%">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Count</th>
+                <th>name</th>
+                <th>count</th>
               </tr>
             </thead>
             <tbody>
+
             </tbody>
+            <tfoot>
+              <tr>
+                <th>name</th>
+                <th>count</th>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -194,45 +267,24 @@
         <h4>Top Origin</h4>
       </div>
       <div class="card-body p-0">
-        <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
-          <table class="table table-striped" id="toporigin">
+        <div class="table-responsive table-invoice">
+          <table id="toporigin" class="table table-striped" style="width:100%">
             <thead>
               <tr>
-                <th>IP Address</th>
-                <th>Count</th>
-                <th>Detail</th>
+                <th>name</th>
+                <th>count</th>
               </tr>
             </thead>
             <tbody>
+
             </tbody>
+            <tfoot>
+              <tr>
+                <th>name</th>
+                <th>count</th>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -243,45 +295,24 @@
         <h4>Top Responder</h4>
       </div>
       <div class="card-body p-0">
-        <div class="table-responsive table-invoice" style="height: 400px; overflow: auto">
-          <table class="table table-striped" id="topresponder">
+        <div class="table-responsive table-invoice">
+          <table id="topresponder" class="table table-striped" style="width:100%">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Count</th>
+                <th>name</th>
+                <th>count</th>
               </tr>
             </thead>
             <tbody>
+
             </tbody>
+            <tfoot>
+              <tr>
+                <th>name</th>
+                <th>count</th>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -296,149 +327,99 @@
       <div class="card-header">
         <h4>DNS Record</h4>
         <div class="card-header-action">
-          <form>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search">
-              <div class="input-group-btn">
-                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-              </div>
-            </div>
-          </form>
+          <div class="btn-group mb-3" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-danger">20%</button>
+            <button type="button" class="btn btn-warning">50%</button>
+            <button type="button" class="btn btn-success">100%</button>
+          </div>
         </div>
       </div>
       <div class="card-body p-0">
-        <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
-          <table class="table table-striped" id="myTable">
+        <div class="table-responsive table-invoice">
+          <table id="dnsrecord" class="table table-striped" style="width:100%">
             <thead>
               <tr>
-                <td>Date</td>
-                <td>Source</td>
-                <td>Destination</td>
-                <td>Query</td>
-                <td>Detail</td>
-                <!-- <th>Date</th>
-                        <th>uid</th>
-                        <th>orig_h </th>
-                        <th>orig_p</th>
-                        <th>resp_h</th>
-                        <th>resp_p</th>
-                        <th>proto</th>
-                        <th>trans_id</th>
-                        <th>query</th>
-                        <th>rcode</th>
-                        <th>rcode_name</th>
-                        <th>AA</th>
-                        <th>TC</th>
-                        <th>RD</th>
-                        <th>RA</th>
-                        <th>Z</th>
-                        <th>answers</th>
-                        <th>TTLs</th>
-                        <th>rejected</th> -->
+                <th>date</th>
+                <th>uid</th>
+                <th>source</th>
+                <th>source port</th>
+                <th>destination</th>
+                <th>destination port</th>
+                <th>proto</th>
+                <th>query</th>
               </tr>
             </thead>
             <tbody>
+
             </tbody>
+            <tfoot>
+              <tr>
+                <th>date</th>
+                <th>uid</th>
+                <th>source</th>
+                <th>source port</th>
+                <th>destination</th>
+                <th>destination port</th>
+                <th>proto</th>
+                <th>query</th>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Malicious -->
+<!-- malicious table -->
 <div class="row">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <h4>Malicious</h4>
         <div class="card-header-action">
-          <form>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search">
-              <div class="input-group-btn">
-                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-              </div>
-            </div>
-          </form>
+          <div class="btn-group mb-3" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-danger">20%</button>
+            <button type="button" class="btn btn-warning">50%</button>
+            <button type="button" class="btn btn-success">100%</button>
+          </div>
         </div>
       </div>
       <div class="card-body p-0">
         <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
-          <table class="table table-striped" id="malicioustable">
+          <table id="malicioustable" class="table table-striped" style="width:100%">
             <thead>
               <tr>
-                <td>date</td>
-                <td>uid</td>
-                <td>Source</td>
-                <td>Source Port</td>
-                <td>Destination</td>
-                <td>Destination Port</td>
-                <td>Label</td>
+                <th>uid</th>
+                <th>source</th>
+                <th>source port</th>
+                <th>destination</th>
+                <th>destination port</th>
+                <th>query</th>
+                <th>label</th>
               </tr>
             </thead>
             <tbody>
+
             </tbody>
+            <tfoot>
+              <tr>
+                <th>uid</th>
+                <th>source</th>
+                <th>source port</th>
+                <th>destination</th>
+                <th>destination port</th>
+                <th>query</th>
+                <th>label</th>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-        <div class="float-right">
-          <nav>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 @endsection
 
 @section('foot-script')
@@ -468,195 +449,6 @@
     $('#topRcode tbody').append($(tableRow));
   }
 
-  // get all dnslogs
-  axios.get('http://abdullahainun.me:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      $.each(data, function (index, value) {
-        //  console.log(value);       // READ THE DATA.      
-        bindDnslogs(value);
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindDnslogs(val) {
-    // var box = "<td><div class='sort-handler'><i class='fas fa-th'></i></div></td>";
-    var ts = "<td>" + val.ts + "</td>";
-    var uid = "<td>" + val.uid + "</td>";
-    var orig_h = "<td>" + val.id_orig_h + "</td>";
-    var orig_p = "<td>" + val.id_orig_p + "</td>";
-    var resp_h = "<td>" + val.id_resp_h + "</td>";
-    var resp_p = "<td>" + val.id_resp_p + "</td>";
-    var proto = "<td>" + val.proto + "</td>";
-    var trans_id = "<td>" + val.trans_id + "</td>";
-    var query = "<td>" + val.query + "</td>";
-    var rcode = "<td>" + val.rcode + "</td>";
-    var rcode_name = "<td>" + val.rcode_name + "</td>";
-    var AA = "<td>" + val.AA + "</td>";
-    var TC = "<td>" + val.TC + "</td>";
-    var RD = "<td>" + val.RD + "</td>";
-    var RA = "<td>" + val.RA + "</td>";
-    var Z = "<td>" + val.Z + "</td>";
-    var answers = "<td>" + val.answers + "</td>";
-    var TTLs = "<td>" + val.TTLs + "</td>";
-    var rejected = "<td>" + val.rejected + "</td>";
-    var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
-
-    var headRow = "<tbody> \
-                      <tr class='clickable' data-toggle='collapse' aria-expanded='false' aria-controls='group-of-rows-1'> \
-                        <td>" + val.ts + "</td> \
-          	            <td>" + val.resp_h + "</td> \
-                        <td>" + val.orig_h + "</td> \
-                        <td>" + val.query + "</td> \
-                        <td>+</td> \
-                      </tr> \
-                    </tbody>";
-    var tableRow = "<tr>" + ts + orig_h + resp_h + query + detail + "</tr>";
-    var tableRow2 = headRow;
-    $('#myTable tbody').append($(tableRow));
-  }
-
-  // // get dns total
-  // axios.get('http://abdullahainun.me:9090/api/dnslogtotal/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100')
-  //   .then(function (response) {
-  //     var data = response.data.data
-  //     // handle success
-  //     $.each(data, function (index, value) {
-  //       //  console.log(value);       // READ THE DATA.      
-  //       bindDnstotal(value);
-  //     });
-  //   })
-  //   .catch(function (error) {
-  //     // handle error
-  //     console.log(error);
-  //   })
-  //   .then(function () {
-  //     // always executed
-  //   });
-  // function bindDnstotal(val){
-  //   // bind to dns total
-  // }
-
-  // get dnslogqueries
-  // http://abdullahainun.me:9090/api/dnslogqueries/2019-04-11/2019-04-11
-  axios.get('http://abdullahainun.me:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      $.each(data, function (index, value) {
-        //  console.log(value);       // READ THE DATA.      
-        bindDnsQuery(value);
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindDnsQuery(val) {
-    var name = "<td>" + val.name + "</td>";
-    var count = "<td>" + val.value + "</td>";
-
-    var tableRow = "<tr>" + name + count + "</tr>";
-    $('#topDomainQuery tbody').append($(tableRow));
-  }
-
-  // get top origin
-  // http://abdullahainun.me:9090/api/dnslogorigh/2019-04-11/2019-04-11
-  axios.get('http://abdullahainun.me:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      $.each(data, function (index, value) {
-        //  console.log(value);       // READ THE DATA.      
-        bindTopOrigin(value);
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindTopOrigin(val) {
-    var ip_address = "<td>" + val.name + "</td>";
-    var count = "<td>" + val.value + "</td>";
-    var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
-
-    var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
-    $('#toporigin tbody').append($(tableRow));
-  }
-
-  // get top resp
-  axios.get('http://abdullahainun.me:9090/api/dnslogresph/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      $.each(data, function (index, value) {
-        //  console.log(value);       // READ THE DATA.      
-        bindTopResp(value);
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindTopResp(val) {
-    var ip_address = "<td>" + val.name + "</td>";
-    var count = "<td>" + val.value + "</td>";
-    var detail = "<td><a href='#' class='btn btn-primary trigger--fire-modal-1' id='toggle-modal'>Detail</a></td>"
-
-    var tableRow = "<tr>" + ip_address + count + detail + "</tr>";
-    $('#topresponder tbody').append($(tableRow));
-  }
-
-  // get all malicious
-  axios.get('http://abdullahainun.me:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=10')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      $.each(data, function (index, value) {
-        //  console.log(value);   
-        bindmalicious(value);
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindmalicious(val) {
-    var date = "<td>" + val.ts + "</td>";
-    var uid = "<td>" + val.uid + "</td>";
-    var orig_h = "<td>" + val.orig_h + "</td>";
-    var orig_p = "<td>" + val.orig_p + "</td>";
-    var resp_h = "<td>" + val.resp_h + "</td>";
-    var resp_p = "<td>" + val.resp_p + "</td>";
-    var label = "<td>" + val.label + "</td>";
-
-    var tableRow = "<tr>" + date + uid + orig_h + orig_p + resp_h + resp_p + label + "</tr>";
-    $('#malicioustable tbody').append($(tableRow));
-  }
-
   // count malicious traffic
   axios.get('http://abdullahainun.me:9090/api/classification/getmaliciouscount/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
@@ -673,7 +465,7 @@
     });
 
   function bindmaliciouscount(val) {
-    $('#malicious').text(val);    
+    $('#malicious').text(val);
     // console.log(val);
   }
 
@@ -715,12 +507,10 @@
     // console.log(val);
   }
 
-  // http://abdullahainun.me:9090/api/dnslogresph/2019-04-11/2019-04-11
   // script untuk tampilan
   $('#toggle-modal').fireModal({
     title: 'My Modal',
     content: 'Hello!'
   });
-</script>
 </script>
 @endsection
