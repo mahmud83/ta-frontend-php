@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('head-script')
 <script>
-    var socket = io.connect('http://abdullahainun.me:9091');
+    var socket = io.connect('http://localhost:9091');
     // var socket = io();
     socket.on("classifications", function (e) {
       sendClassificationLog(e.classifications.fullDocument);
