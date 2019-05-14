@@ -14,7 +14,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('#malicioustable').DataTable({
-      "ajax": "http://localhost:9090/api/klasifikasimalicious/2019-05-08/2019-05-08/?pageNo=1&size=100",
+      "ajax": "http://localhost:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
       "columns": [{
           "data": "uid"
         },
