@@ -14,7 +14,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('#malicioustable').DataTable({
-      "ajax": "http://localhost:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
+      "ajax": "http://68.183.177.125:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
       "columns": [{
           "data": "uid"
         },
@@ -41,7 +41,7 @@
   });
   $(document).ready(function () {
     $('#topDomainQuery').DataTable({
-      "ajax": "http://localhost:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://68.183.177.125:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>",
       "columns": [{
           "data": "name"
         },
@@ -53,7 +53,7 @@
   });
   $(document).ready(function () {
     $('#topRcode').DataTable({
-      "ajax": "http://localhost:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://68.183.177.125:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",
       "columns": [{
           "data": "name"
         },
@@ -65,7 +65,7 @@
   });
   $(document).ready(function () {
     $('#toporigin').DataTable({
-      "ajax": "http://localhost:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://68.183.177.125:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>",
       "columns": [{
           "data": "name"
         },
@@ -77,7 +77,7 @@
   });
   $(document).ready(function () {
     $('#topresponder').DataTable({
-      "ajax": "http://localhost:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://68.183.177.125:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>",
       "columns": [{
           "data": "name"
         },
@@ -89,7 +89,7 @@
   });
   $(document).ready(function () {
     $('#dnsrecord').DataTable({
-      "ajax": "http://localhost:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
+      "ajax": "http://68.183.177.125:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
       "columns": [{
           "data": "ts"
         },
@@ -425,7 +425,7 @@
 @section('foot-script')
 <script>
   // get top resp
-  axios.get('http://localhost:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://68.183.177.125:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -450,7 +450,7 @@
   }
 
   // count malicious traffic
-  axios.get('http://localhost:9090/api/classification/getmaliciouscount/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://68.183.177.125:9090/api/classification/getmaliciouscount/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -470,7 +470,7 @@
   }
 
   // count normal traffic
-  axios.get('http://localhost:9090/api/classification/getnormalcount/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://68.183.177.125:9090/api/classification/getnormalcount/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       bindnormalcount(data);
@@ -489,7 +489,7 @@
   }
 
   // total count
-  axios.get('http://localhost:9090/api/connlogtotal/<?php echo $start ?>/<?php echo $end ?>')
+  axios.get('http://68.183.177.125:9090/api/connlogtotal/<?php echo $start ?>/<?php echo $end ?>')
     .then(function (response) {
       var data = response.data.data
       bindconncount(data);

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('custom-script')
   <script>
-    var socket = io.connect('http://localhost:9091');
+    var socket = io.connect('http://68.183.177.125:9091');
     // var socket = io();
     socket.on("dns", function (e) {
       sendDnsLog(e.dns.fullDocument);
