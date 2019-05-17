@@ -1,14 +1,13 @@
 <?php
    
-// Route::get('/', function () {
-//     return redirect('home');
-//     // echo "hello";
-// });
+Route::get('/', function () {
+    return redirect('home');
+});
 
 
-Route::get('/', 'HomeController@index');
-Route::get('/login', ['as' => 'login', 'uses' => 'SiteController@login']);
-Route::get('/welcome', ['as' => 'welcome', 'uses' => 'SiteController@welcome']);
+// Route::get('/', 'HomeController@index');
+// Route::get('/login', ['as' => 'login', 'uses' => 'SiteController@login']);
+// Route::get('/welcome', ['as' => 'welcome', 'uses' => 'SiteController@welcome']);
 
 
 // trafic
@@ -32,4 +31,4 @@ Route::get('/forgot-password','SiteController@forgotPassword');
 
 // Route::get('/home','SiteController@index')->name('home');;
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
