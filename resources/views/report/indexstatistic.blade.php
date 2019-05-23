@@ -28,14 +28,15 @@
           <form action="{{ action('ReportController@resStatistic') }}" method="get">
             <div class="row">
               <div class="col-md">
-                <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>
+                <?php echo "<input type='date' class='form-control' name='startday' value='".$_GET['startday']."'>"; ?>
               </div>
               <div class="col-md">
-                <?php echo "<input type='date' class='form-control' name='endday' value='".date("Y-m-d")."'>"; ?>
+                <?php echo "<input type='date' class='form-control' name='endday' value='".$_GET['endday']."'>"; ?>
               </div>
               <div class="col-md2"></div>
+              <input type="hidden" name="jam" value="<?php echo $_GET['jam'] ?>">
               <div class="col-md2">
-                <input class="btn btn-success" type="submit">
+                <input class="btn btn-primary" type="submit">
               </div>
             </div>
             <!-- <button ><i class="fas fa-submit"></i></button> -->
@@ -55,7 +56,7 @@
 @section('foot-script')
 <script>
   // get all dnslogs
-  axios.get('http://68.183.177.125:9090/api/dnslogs')
+  axios.get('http://202.46.4.53:9090/api/dnslogs')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -110,7 +111,7 @@
   }
 
   // get all dnslogs
-  axios.get('http://68.183.177.125:9090/api/dnslogs/queries')
+  axios.get('http://202.46.4.53:9090/api/dnslogs/queries')
     .then(function (response) {
       var data = response.data.data
       // handle success

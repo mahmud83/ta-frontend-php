@@ -39,8 +39,9 @@
                 <?php echo "<input type='date' class='form-control' name='endday' value='".date("Y-m-d")."'>"; ?>
               </div>
               <div class="col-md2"></div>
+              <input type="hidden" name="jam" value="<?php echo $_GET['jam'] ?>">
               <div class="col-md2">
-                <input class="btn btn-success" type="submit">
+                <input class="btn btn-primary" type="submit" value="search">
               </div>
             </div>
             <!-- <button ><i class="fas fa-submit"></i></button> -->
@@ -53,7 +54,6 @@
     </div>
   </div>
   <!-- end row1 -->
-
 </div>
 
 <!-- Malicious traffic-->
@@ -165,10 +165,10 @@
 
   $(document).ready(function () {
     // console.log(_spPageContextInfo.webAbsoluteUrl);
-    var hostname = "http://68.183.177.125:9090/api"
+    var hostname = "http://202.46.4.53:9090/api"
     var Urls = [
-      "http://68.183.177.125:9090/api/dnslogrcodes/2019-04-11/2019-04-11/",
-      "http://68.183.177.125:9090/api/dnslogqueries/2019-04-11/2019-04-11"
+      "http://202.46.4.53:9090/api/dnslogrcodes/2019-04-11/2019-04-11/",
+      "http://202.46.4.53:9090/api/dnslogqueries/2019-04-11/2019-04-11"
     ];
     var toprcodeConfig = {
       url: hostname + "/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",

@@ -34,8 +34,9 @@
                 <?php echo "<input type='date' class='form-control' name='endday' value='".date("Y-m-d")."'>"; ?>
               </div>
               <div class="col-md2"></div>
+              <input type="hidden" name="jam" value="0001">
               <div class="col-md2">
-                <input class="btn btn-success" type="submit">
+                <input class="btn btn-primary" type="submit" value="search">
               </div>
             </div>
             <!-- <button ><i class="fas fa-submit"></i></button> -->
@@ -55,7 +56,7 @@
 @section('foot-script')
 <script>
   // get all dnslogs
-  axios.get('http://68.183.177.125:9090/api/dnslogs')
+  axios.get('http://202.46.4.53:9090/api/dnslogs')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -110,7 +111,7 @@
   }
 
   // get all dnslogs
-  axios.get('http://68.183.177.125:9090/api/dnslogs/queries')
+  axios.get('http://202.46.4.53:9090/api/dnslogs/queries')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -138,12 +139,6 @@
     $('#topDomainQuery tbody').append($(tableRow));
   }
 
-
-  // script untuk tampilan
-  $('#toggle-modal').fireModal({
-    title: 'My Modal',
-    content: 'Hello!'
-  });
 </script>
 </script>
 @endsection

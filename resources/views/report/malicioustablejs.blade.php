@@ -1,7 +1,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#malicioustable').DataTable({
-            "ajax": "http://68.183.177.125:9090/api/klasifikasimalicious/2019-05-08/2019-05-08/?pageNo=1&size=100",
+            "ajax": "http://202.46.4.53:9090/api/klasifikasimalicious/2019-05-08/2019-05-08/?pageNo=1&size=100",
             "columns": [{
                     "data": "uid"
                 },

@@ -9,6 +9,7 @@
       <a class="btn btn-primary btn-lg" href="report/tables" role="button">start here</a>
     </p>
   </div>
+  
 <div class="row">
   <div class="col-lg-4 col-md-4 col-sm-12">
     <div class="card card-statistic-2">
@@ -56,6 +57,46 @@
     </div>
   </div>
 </div>
+
+<!-- start row1 -->
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <!-- start date  -->
+    <!-- card wrapper -->
+    <div class="card">
+      <!-- card header -->
+      <div class="card-header">
+        <!-- card title -->
+        <h4>Filter DNS Record by periode</h4>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+        <div class="row">
+          <form action="{{ action('ReportController@resTables') }}" method="get">
+            <div class="row">
+              <div class="col-md">
+                <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>
+              </div>
+              <div class="col-md">
+                <?php echo "<input type='date' class='form-control' name='endday' value='".date("Y-m-d")."'>"; ?>
+              </div>
+              <input type="hidden" name="jam" value="0001">
+              <div class="col-md2"></div>
+              <div class="col-md2">
+                <input class="btn btn-success" type="submit">
+              </div>
+            </div>
+            <!-- <button ><i class="fas fa-submit"></i></button> -->
+          </form>
+        </div>
+        <!-- card footer -->
+        <div class="card-footer">
+        </div>
+      </div>
+  </div>
+</div>
+<!-- end row1 -->
+
 
 @endsection
 @section('foot-script')

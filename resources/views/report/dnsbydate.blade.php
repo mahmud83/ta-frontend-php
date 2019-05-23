@@ -14,7 +14,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('#malicioustable').DataTable({
-      "ajax": "http://68.183.177.125:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
+      "ajax": "http://202.46.4.53:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "uid"
         },
@@ -41,7 +41,7 @@
   });
   $(document).ready(function () {
     $('#topDomainQuery').DataTable({
-      "ajax": "http://68.183.177.125:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://202.46.4.53:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -53,7 +53,7 @@
   });
   $(document).ready(function () {
     $('#topRcode').DataTable({
-      "ajax": "http://68.183.177.125:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://202.46.4.53:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -65,7 +65,7 @@
   });
   $(document).ready(function () {
     $('#toporigin').DataTable({
-      "ajax": "http://68.183.177.125:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://202.46.4.53:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -77,7 +77,7 @@
   });
   $(document).ready(function () {
     $('#topresponder').DataTable({
-      "ajax": "http://68.183.177.125:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>",
+      "ajax": "http://202.46.4.53:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -89,7 +89,7 @@
   });
   $(document).ready(function () {
     $('#dnsrecord').DataTable({
-      "ajax": "http://68.183.177.125:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/?pageNo=1&size=100",
+      "ajax": "http://202.46.4.53:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "ts"
         },
@@ -121,13 +121,14 @@
 @endsection
 @section('content')
 <div class="section-header">
-  <h1>Report</h1>
+  <h1>Report <?php echo $_GET['startday']." s/d ".$_GET['endday']." pada jam ".substr_replace($_GET['jam'], ' - ',-2, 0); ?></h1> 
   <div class="section-header-breadcrumb">
     <div class="breadcrumb-item active"><a href="#">statistic</a></div>
     <div class="breadcrumb-item">DNS Report statistic</div>
   </div>
 </div>
 <!-- start row1 -->
+@if(!empty($_GET))
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12">
     <!-- start date  -->
@@ -141,17 +142,18 @@
       <!-- card body -->
       <div class="card-body">
         <div class="row">
-          <form action="{{ action('ReportController@resStatistic') }}" method="get">
+          <form action="{{ action('ReportController@resTables') }}" method="get">
             <div class="row">
               <div class="col-md">
-                <?php echo "<input type='date' class='form-control' name='startday' value='".date("Y-m-d")."'>"; ?>
+                <?php echo "<input type='date' class='form-control' name='startday' value='".$_GET['startday']."'>"; ?>
               </div>
               <div class="col-md">
-                <?php echo "<input type='date' class='form-control' name='endday' value='".date("Y-m-d")."'>"; ?>
+                <?php echo "<input type='date' class='form-control' name='endday' value='".$_GET['endday']."'>"; ?>
               </div>
               <div class="col-md2"></div>
+              <input type="hidden" name="jam" value="<?php echo $_GET['jam'] ?>">
               <div class="col-md2">
-                <input class="btn btn-success" type="submit">
+                <input class="btn btn-primary" type="submit" value="search">
               </div>
             </div>
             <!-- <button ><i class="fas fa-submit"></i></button> -->
@@ -166,6 +168,7 @@
   <!-- end row1 -->
 
 </div>
+@endif
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6 col-12">
     <div class="card card-statistic-1">
@@ -190,6 +193,36 @@
       <div class="card-wrap">
         <div class="card-header">
           <h4>Normal</h4>
+        </div>
+        <div class="card-body">
+          <p id="normal"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-primary">
+        <i class="fas fa-circle"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <form action="{{ action('ReportController@resStatistic') }}" method="get">
+            <div class="row">
+              <div class="col-md">
+                <?php echo "<input type='hidden' class='form-control' name='startday' value='".$_GET['startday']."'>"; ?>
+              </div>
+              <div class="col-md">
+                <?php echo "<input type='hidden' class='form-control' name='endday' value='".$_GET['endday']."'>"; ?>
+              </div>
+              <div class="col-md2"></div>
+              <input type="hidden" name="jam" value="<?php echo $_GET['jam'] ?>">
+              <div class="col-md2">
+                <input class="btn btn-primary" type="submit" value="show statistic">
+              </div>
+            </div>
+            <!-- <button ><i class="fas fa-submit"></i></button> -->
+          </form>          
         </div>
         <div class="card-body">
           <p id="normal"></p>
@@ -326,13 +359,6 @@
     <div class="card">
       <div class="card-header">
         <h4>DNS Record</h4>
-        <div class="card-header-action">
-          <div class="btn-group mb-3" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-danger">20%</button>
-            <button type="button" class="btn btn-warning">50%</button>
-            <button type="button" class="btn btn-success">100%</button>
-          </div>
-        </div>
       </div>
       <div class="card-body p-0">
         <div class="table-responsive table-invoice">
@@ -377,13 +403,6 @@
     <div class="card">
       <div class="card-header">
         <h4>Malicious</h4>
-        <div class="card-header-action">
-          <div class="btn-group mb-3" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-danger">20%</button>
-            <button type="button" class="btn btn-warning">50%</button>
-            <button type="button" class="btn btn-success">100%</button>
-          </div>
-        </div>
       </div>
       <div class="card-body p-0">
         <div class="table-responsive table-invoice" style="height: 700px; overflow: auto">
@@ -423,94 +442,4 @@
 @endsection
 
 @section('foot-script')
-<script>
-  // get top resp
-  axios.get('http://68.183.177.125:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      $.each(data, function (index, value) {
-        //  console.log(value);       // READ THE DATA.      
-        bindTopRcode(value);
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindTopRcode(val) {
-    var name = "<td>" + val.name + "</td>";
-    var count = "<td>" + val.value + "</td>";
-    var tableRow = "<tr>" + name + count + "</tr>";
-    $('#topRcode tbody').append($(tableRow));
-  }
-
-  // count malicious traffic
-  axios.get('http://68.183.177.125:9090/api/classification/getmaliciouscount/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      // handle success
-      bindmaliciouscount(data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindmaliciouscount(val) {
-    $('#malicious').text(val);
-    // console.log(val);
-  }
-
-  // count normal traffic
-  axios.get('http://68.183.177.125:9090/api/classification/getnormalcount/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      bindnormalcount(data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindnormalcount(val) {
-    $('#normal').text(val);
-    // console.log(val);
-  }
-
-  // total count
-  axios.get('http://68.183.177.125:9090/api/connlogtotal/<?php echo $start ?>/<?php echo $end ?>')
-    .then(function (response) {
-      var data = response.data.data
-      bindconncount(data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-
-  function bindconncount(val) {
-    $('#total').text(val);
-    // console.log(val);
-  }
-
-  // script untuk tampilan
-  $('#toggle-modal').fireModal({
-    title: 'My Modal',
-    content: 'Hello!'
-  });
-</script>
 @endsection
