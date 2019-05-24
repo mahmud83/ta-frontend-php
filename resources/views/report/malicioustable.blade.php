@@ -19,9 +19,6 @@
                     "data": "resp_p"
                 },
                 {
-                    "data": "dns.0.query"
-                },
-                {
                     "data": "label"
                 }
             ]
@@ -46,7 +43,6 @@
                                 <th>source port</th>
                                 <th>destination</th>
                                 <th>destination port</th>
-                                <th>query</th>
                                 <th>label</th>
                             </tr>
                         </thead>
@@ -60,7 +56,6 @@
                                 <th>source port</th>
                                 <th>destination</th>
                                 <th>destination port</th>
-                                <th>query</th>
                                 <th>label</th>
                             </tr>
                         </tfoot>

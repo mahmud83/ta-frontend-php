@@ -11,7 +11,7 @@
   </div>
   
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-12">
+  <!-- <div class="col-lg-4 col-md-4 col-sm-12">
     <div class="card card-statistic-2">
       <div class="card-icon shadow-primary bg-primary">
         <i class="fas fa-archive"></i>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="col-lg-4 col-md-4 col-sm-12">
     <div class="card card-statistic-2">
       <div class="card-icon shadow-primary bg-primary">
@@ -105,7 +105,7 @@
   var malicious = 0;
   var normal = 0
   // get all dnslogs
-  axios.get('http://68.183.177.125:9090/api/classification/totalmalicious')
+  axios.get('http://202.46.4.53:9090/api/classification/totalmalicious')
     .then(function (response) {
       malicious = response.data.data
       // handle success
@@ -119,7 +119,7 @@
       // always executed
     });
 
-    axios.get('http://68.183.177.125:9090/api/classification/totalnormal')
+    axios.get('http://202.46.4.53:9090/api/classification/totalnormal')
     .then(function (response) {
       normal = response.data.data
       // handle success

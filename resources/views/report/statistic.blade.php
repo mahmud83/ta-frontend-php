@@ -171,16 +171,16 @@
       "http://202.46.4.53:9090/api/dnslogqueries/2019-04-11/2019-04-11"
     ];
     var toprcodeConfig = {
-      url: hostname + "/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>",
+      url: hostname + "/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       id: "toprcode",
       type: "pie",
       xAxisName: "name", //X-Axis Label Names from List
       yAxisName: "value", //Y-Axis Values from List
       label: "simple chart pie",
-      text: "hello apa kabar",
+      text: "",
     };
     var topprotokolConfig = {
-      url: hostname + "/connlogprotokol/<?php echo $start ?>/<?php echo $end ?>",
+      url: hostname + "/connlogprotokol/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       id: "topprotokol",
       type: "pie",
       xAxisName: "name", //X-Axis Label Names from List
@@ -189,7 +189,7 @@
       text: "",
     }
     var topqueryConfig = {
-      url: hostname + "/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>",
+      url: hostname + "/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       id: "topquery",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
@@ -198,7 +198,7 @@
       text: "Domain yang paling banyak di akses",
     };
     var toporiginConfig = {
-      url: hostname + "/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>",
+      url: hostname + "/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       id: "toporigin",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
@@ -207,7 +207,7 @@
       text: "",
     };
     var topresponConfig = {
-      url: hostname + "/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>",
+      url: hostname + "/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       id: "toprespon",
       type: "line",
       xAxisName: "name", //X-Axis Label Names from List
@@ -216,7 +216,7 @@
       text: "",
     };
     var klasifikasiConfig = {
-      url: hostname + "/classification/klasifikasicount/<?php echo $start ?>/<?php echo $end ?>",
+      url: hostname + "/classification/klasifikasicount/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       id: "klasifikasi",
       type: "pie",
       xAxisName: "name", //X-Axis Label Names from List

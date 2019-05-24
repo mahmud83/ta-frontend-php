@@ -31,9 +31,6 @@
           "data": "resp_p"
         },
         {
-          "data": "dns.0.query"
-        },
-        {
           "data": "label"
         }
       ]
@@ -414,7 +411,6 @@
                 <th>source port</th>
                 <th>destination</th>
                 <th>destination port</th>
-                <th>query</th>
                 <th>label</th>
               </tr>
             </thead>
@@ -428,7 +424,6 @@
                 <th>source port</th>
                 <th>destination</th>
                 <th>destination port</th>
-                <th>query</th>
                 <th>label</th>
               </tr>
             </tfoot>
@@ -442,4 +437,33 @@
 @endsection
 
 @section('foot-script')
+<script>
+  axios.get('http://68.183.177.125:9090/api/classification/getnormalcount/<?php echo $_GET['startday'] ?>/<?php echo $_GET['endday'] ?>/<?php echo $_GET['jam'] ?>')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      $('#normal').append(data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+
+    axios.get('http://68.183.177.125:9090/api/classification/getmaliciouscount/<?php echo $_GET['startday'] ?>/<?php echo $_GET['endday'] ?>/<?php echo $_GET['jam'] ?>')
+    .then(function (response) {
+      var data = response.data.data
+      // handle success
+      $('#malicious').append(data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+</script>
 @endsection
