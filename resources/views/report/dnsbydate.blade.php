@@ -14,7 +14,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('#malicioustable').DataTable({
-      "ajax": "http://202.46.4.53:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
+      "ajax": "http://10.8.0.2:9090/api/klasifikasimalicious/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "uid"
         },
@@ -38,7 +38,7 @@
   });
   $(document).ready(function () {
     $('#topDomainQuery').DataTable({
-      "ajax": "http://202.46.4.53:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
+      "ajax": "http://10.8.0.2:9090/api/dnslogqueries/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -50,7 +50,7 @@
   });
   $(document).ready(function () {
     $('#topRcode').DataTable({
-      "ajax": "http://202.46.4.53:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
+      "ajax": "http://10.8.0.2:9090/api/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -62,7 +62,7 @@
   });
   $(document).ready(function () {
     $('#toporigin').DataTable({
-      "ajax": "http://202.46.4.53:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
+      "ajax": "http://10.8.0.2:9090/api/connlogtoporigin/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -74,7 +74,7 @@
   });
   $(document).ready(function () {
     $('#topresponder').DataTable({
-      "ajax": "http://202.46.4.53:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
+      "ajax": "http://10.8.0.2:9090/api/connlogtopresp/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "name"
         },
@@ -86,7 +86,7 @@
   });
   $(document).ready(function () {
     $('#dnsrecord').DataTable({
-      "ajax": "http://202.46.4.53:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
+      "ajax": "http://10.8.0.2:9090/api/dnslog/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
       "columns": [{
           "data": "ts"
         },

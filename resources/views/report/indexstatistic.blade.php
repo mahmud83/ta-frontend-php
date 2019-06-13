@@ -56,7 +56,7 @@
 @section('foot-script')
 <script>
   // get all dnslogs
-  axios.get('http://202.46.4.53:9090/api/dnslogs')
+  axios.get('http://10.8.0.2:9090/api/dnslogs')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -111,7 +111,7 @@
   }
 
   // get all dnslogs
-  axios.get('http://202.46.4.53:9090/api/dnslogs/queries')
+  axios.get('http://10.8.0.2:9090/api/dnslogs/queries')
     .then(function (response) {
       var data = response.data.data
       // handle success

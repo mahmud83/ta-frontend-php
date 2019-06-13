@@ -165,10 +165,10 @@
 
   $(document).ready(function () {
     // console.log(_spPageContextInfo.webAbsoluteUrl);
-    var hostname = "http://202.46.4.53:9090/api"
+    var hostname = "http://10.8.0.2:9090/api"
     var Urls = [
-      "http://202.46.4.53:9090/api/dnslogrcodes/2019-04-11/2019-04-11/",
-      "http://202.46.4.53:9090/api/dnslogqueries/2019-04-11/2019-04-11"
+      "http://10.8.0.2:9090/api/dnslogrcodes/2019-04-11/2019-04-11/",
+      "http://10.8.0.2:9090/api/dnslogqueries/2019-04-11/2019-04-11"
     ];
     var toprcodeConfig = {
       url: hostname + "/dnslogrcodes/<?php echo $start ?>/<?php echo $end ?>/<?php echo $_GET['jam'] ?>",
