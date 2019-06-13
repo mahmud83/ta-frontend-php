@@ -438,7 +438,7 @@
 
 @section('foot-script')
 <script>
-  axios.get('http://68.183.177.125:9090/api/classification/getnormalcount/<?php echo $_GET['startday'] ?>/<?php echo $_GET['endday'] ?>/<?php echo $_GET['jam'] ?>')
+  axios.get('http://10.8.0.2:9090/api/classification/getnormalcount/<?php echo $_GET['startday'] ?>/<?php echo $_GET['endday'] ?>/<?php echo $_GET['jam'] ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
@@ -452,7 +452,7 @@
       // always executed
     });
 
-    axios.get('http://68.183.177.125:9090/api/classification/getmaliciouscount/<?php echo $_GET['startday'] ?>/<?php echo $_GET['endday'] ?>/<?php echo $_GET['jam'] ?>')
+    axios.get('http://10.8.0.2:9090/api/classification/getmaliciouscount/<?php echo $_GET['startday'] ?>/<?php echo $_GET['endday'] ?>/<?php echo $_GET['jam'] ?>')
     .then(function (response) {
       var data = response.data.data
       // handle success
